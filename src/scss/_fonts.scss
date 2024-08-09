@@ -1,0 +1,23 @@
+@import 'icons-jusu';
+// Мой файл с примером css записи фонта
+@font-face {
+	font-family: "Monserratcyr";
+	font-display: swap;
+	src: url("../fonts/Montserrat_cyr.woff") format("woff"), url("../fonts/Montserrat_cyr.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+}
+// @font-face {
+// 	font-family: "Raleway";
+// 	font-display: swap;
+// 	src: url("../fonts/Raleway-VariableFont_wght.woff") format("woff"), url("../fonts/Raleway-VariableFont_wght.woff2") format("woff2");
+// 	font-weight: 400;
+// 	font-style: normal;
+// }
+// @font-face {
+// 	font-family: "GTWalsheimProRegular";
+// 	font-display: swap;
+// 	src: url("../fonts/GTWalsheimProRegular.woff") format("woff"), url("../fonts/GTWalsheimProRegular.woff2") format("woff2");
+// 	font-weight: 400;
+// 	font-style: normal;
+// }

@@ -1,0 +1,63 @@
+<div class="max-w-[970px] mx-auto">
+	<div class="banner-container">
+		<div class="flex flex-col md:flex-row gap-6 relative items-center">
+			<div class="w-[130px] shrink-0">
+				<img class="shrink-0"
+					src="/theme/img/test/vosk-zabrus.jpg"></div>
+			<div>
+				<div class="text-[21px] text-[#F6F2E1]">
+					Title: @@title
+					БУСТЕР — новый подход к обучению покеру</div>
+				<div class="clr-grey text-base mt-3">Это объединение единомышленников: людей, которые хотят улучшить свои
+					результаты в покере, а также топовый софт и обучение в режиме нон-стоп в закрытой конфе в дискорде</div>
+			</div>
+			<div class="shrink-0 w-[217px] h-[72px]">
+				<a class="btn primary h-full" target="_blank" href="/booster">
+					<div>
+						<div class="text-base text-white">Подробнее</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.banner-container {
+    background: linear-gradient(180deg,#23321E 0%,rgba(39,40,38,.2) 100%);
+    padding: 1.5rem 2.5rem;
+    border-radius: 25px;
+    position: relative;
+}
+button.btn, a.btn {
+    background: transparent;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 1rem;
+    border: 1px solid gray;
+    min-width: 150px;
+    min-height: 45px;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    line-height: 1;
+    text-decoration: none;
+}
+a.btn {
+    display: flex;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+		background-color: green;
+}
+button.btn.primary:hover:not([disabled]), 
+a.btn.primary:hover:not([disabled]) {
+    color: #fff;
+		background-color: green;
+		border-color: green;
+    box-shadow: 0 0 7px green;
+    text-decoration: none;
+}
+</style>

@@ -1,0 +1,38 @@
+.page__search {
+	color: red;
+}
+.page {
+	&__search { } 
+}
+.categories-search {
+}
+
+.search-page {
+	display: flex;
+	position: relative;
+	
+	&__input {
+		flex: 1 1 auto;
+		border-top: 2px solid #f2f2f2;
+		border-bottom: 2px solid #f2f2f2;
+		input {
+			height: 100%;
+		}
+	 }
+	&__select {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		padding: 0 14px;
+		background-color: #f3f3f3;
+	}
+	&__title {
+		margin: 0 13px;
+		border-bottom: 1px dashed #000;
+	}
+	&__btn {
+		// align-items: center;
+		// text-align: center;
+		width: 100%;
+	 }
+}

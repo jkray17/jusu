@@ -1,0 +1,58 @@
+<div  id="price" class="block_text-img flex-wrap">
+	<h2 class="basis-full text-center">
+		<span class="highlight">Цены и Контакты</span>
+	</h2>
+  <div class="item_text sm:basis-2/5">
+    <h5 class="mt-2 mb-0 text-xl font-bold leading-none text-gray-900 dark:text-white">
+      КОНТАКТЫ:
+    </h5>
+    <ul role="list" class="my-0">
+      <li>
+        <i class="fas fa-map-marker"></i>
+        <span>Александров, Первомайская, д 46</span>
+      </li>
+      <li>
+        <i class="fas fa-phone-alt"></i>
+        <span>+7 (499) 648-02-70</span>
+      </li>
+      <li>
+        <i class="fas fa-clock"></i>
+        <span>КРУГЛОСУТОЧНО</span>
+      </li>
+      <li>
+				<ul class="relative flex flex-row justify-center gap-4">
+					<li class="relative list-none flex justify-center items-center w-[60px] h-[60px] bg-white shadow-md shadow-gray-700 cursor-pointer text-4xl">
+						<a itemprop="url" href="https://api.whatsapp.com/send?phone=79005895222&amp;text=Здравствуйте, у меня вопрос" target="_blank">
+							<i class="fab fa-whatsapp"></i>
+						</a>
+					</li>
+					<li class="relative list-none flex justify-center items-center w-[60px] h-[60px] bg-white shadow-md shadow-gray-700 cursor-pointer text-4xl">
+						<a itemprop="url" href="https://vk.com/vipdolphin_33" target="_blank">
+							<i class="fab fa-vk"></i>
+						</a>
+					</li>
+					<li class="relative list-none flex justify-center items-center w-[60px] h-[60px] bg-white shadow-md shadow-gray-700 cursor-pointer text-4xl">
+						<a
+							itemprop="url"
+							href="https://www.instagram.com/vipsauna.delfin/"
+							target="_blank"
+							><i class="fab fa-instagram"></i>
+						</a>
+					</li>
+				</ul>
+			</li>
+    </ul>
+  </div>
+  <div class="item_img sm:basis-1/2">
+    <!-- <img src="/img/block_sport.jpg" alt="" /> -->
+		<!-- @@include('_google_map.html', {}) -->
+  </div>
+	
+	<div class=" sm:basis-2/5">
+		@@include('_block-price.html', {})
+  </div>
+	<div class="item_img sm:basis-1/2">
+		@@include('_block-price_billiard.html', {})
+  </div>
+
+</div>

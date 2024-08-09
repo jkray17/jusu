@@ -1,0 +1,95 @@
+<section class="contacts">
+	<div data-tabs class="contacts__container">
+		<div class="contacts__title title">
+			<div class="title__label">Контакты</div>
+			<h2 class="title__value">Место нахождения и расписание работы</h2>
+		</div>
+
+		<div class="contacts__items">
+			<div class="contacts__item item-contacts">
+				<div class="item-contacts__img icon-location"></div>
+				<div class="item-contacts__body">
+					<h4 class="item-contacts__title">Адрес</h4>
+					<p class="item-contacts__text">Daugavgrīvas 112, Rīga</p>
+					<p class="item-contacts__text">LV-1055, Latvija</p>
+				</div>
+			</div>
+			<div class="contacts__item item-contacts">
+				<div class="item-contacts__img icon-envelop"></div>
+				<div class="item-contacts__body">
+					<h4 class="item-contacts__title">Контакты</h4>
+					<div class="item-contacts__text">
+						<p class="item-contacts__label">Tel.</p>
+						<p class="item-contacts__value">(+371)28888669</p>
+						<p class="item-contacts__label">T.</p>
+						<p class="item-contacts__value">(+371)29928282</p>
+						<p class="item-contacts__label">E-mail:
+						</p>
+						<p class="item-contacts__value"> <a href="mailto:JX5Gm@example.com">JX5Gm@example.com</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="contacts__item item-contacts">
+				<div class="item-contacts__img icon-calendar"></div>
+				<div class="item-contacts__body">
+					<h4 class="item-contacts__title">Время работы</h4>
+					<div class="item-contacts__text">
+						<p class="item-contacts__label">Пн.
+						</p>
+						<p class="item-contacts__value">09.30 - 18.00</p>
+						<p class="item-contacts__label">Вт.
+						</p>
+						<p class="item-contacts__value">09.30 - 18.00</p>
+						<p class="item-contacts__label">Ср.
+						</p>
+						<p class="item-contacts__value">09.30 - 18.00</p>
+						<p class="item-contacts__label">Чт.
+						</p>
+						<p class="item-contacts__value">09.30 - 18.00</p>
+						<p class="item-contacts__label">Пт.
+						</p>
+						<p class="item-contacts__value">09.30 - 18.00</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="contacts__footer">
+			<div class="contacts__map">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2175.0322181453907!2d24.070775299999998!3d56.965380599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46eecff0f70eed7d%3A0x27d3b6551fce842f!2zRGF1Z2F2Z3LEq3ZhcyBpZWxhIDExMiwgS3VyemVtZXMgcmFqb25zLCBSxKtnYSwgTFYtMTA1NSwg0JvQsNGC0LLQuNGP!5e0!3m2!1sru!2sua!4v1699696684067!5m2!1sru!2sua" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+
+			<form method="post" action="sendmail/sendmail.php" enctype="multipart/form-data" class="contacts__form form">
+				<input type="text" placeholder="Ваше имя" name="name" class="form__input">
+				<input type="text" placeholder="Ваша почта" name="email" class="form__input">
+				<div class="form__options options-form">
+					<h4 class="options-form__title">Вам нравится?</h4>
+					<label for="" class="options-form__item">
+						<input class="options-form__input" type="radio" name="like" value="1" checked>
+						<span class="options-form__text">Да</span>
+					</label>
+					<label for="" class="options-form__item">
+						<input class="options-form__input" type="radio" name="like" value="2">
+						<span class="options-form__text">Нет</span>
+					</label>
+				</div>
+				<input type="text" placeholder="Ваш телефон" name="phone" class="form__input">
+				<textarea placeholder="Ваше сообщение" name="message" class="form__input"></textarea>
+				<div class="form__file file-form">
+					<label for="" class="file-form__item">
+						<input class="file-form__input" name="userfile" type="file" accept=".jpg, .png, .pdf">
+						<div class="file-form_button button">Выберите себе  файл</div>
+					</label>
+					<div class="file-form__name">Зачем здесь Файл не выбран</div>
+				</div>
+				<label for="" class="form__checkbox checkbox-form">
+					<input class="checkbox-form__input" type="checkbox" name="iagree">
+					<span class="checkbox-form__text">Я согласен на обработку персональных данных</span>
+				</label>
+				<button class="form__button button">Отправить</button>
+			</form>
+		</div>
+
+
+	</div>
+</section>

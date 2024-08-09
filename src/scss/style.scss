@@ -1,0 +1,1898 @@
+@import 'fonts';
+@import 'ui';
+// @import 'evo-corp/header';
+// @import 'tailwind'; 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+// ***  Используем видео фронтендера "Адаптивна верстка цікавого сайту. Пояснення дій. HTML CSS JS FIGMA. Частина №1"
+// https://youtu.be/x91woHXCcyc?t=1528   - параметры адаптивности
+// *******************************
+
+
+// // *** vars ***
+// $fontFamily: "Monserratcyr";
+// // $fontFamily: "Raleway"
+// // $fontFamily: "GTWalsheimProRegular"
+// $baseFontSize: 16;
+// $fontSize: toRem(16); // toRem( размер фонта в пикселях)
+
+// // *** vars для адаптива ***
+// $minWidth: 320; // мин ширина экрана ( !!! разобраться  сразмерностью)
+// $maxWidth: 1920; // макс ширина экрана
+// $maxWidthContainer: 1170; // макс ширина ограничительного контейнера, 0 - нет ограничения >>>> !!! разобраться с нулевым значением !!!!
+// $containerPadding: 30; // отступ контейнера общий  обеих сторон 15+15
+// $containerWidth: $maxWidthContainer + $containerPadding; // ширина срабатывания первого брейкпоинта
+// // breakpoints ( !!!! перевести всё в em)
+// $pc: $containerWidth; // ПК и планшеты в горизонтах
+// $tablet: 991.98; // Планшеты и телефоны в горизонтах
+// $mobile: 767.98; // Телефоны L
+// $mobileSmall: 479.98; // Телефоны S
+
+// // Тип адаптива:
+// // 1 - отзывчивый ( у контейнера нет брейкпоинтов )
+// // 2 - по брейкпоинтам (у контейнера есть брейкпоинты )
+// $responsiveType: 1;
+
+// //  Обнуление ***************************
+// //  @import 'base/_reset';
+
+
+// // Colors
+// // основные цвета
+// $mainColor: #222; // основной цвет текста
+// // Палитры цветов (подключать из файла типа scss/_colors.scss)?
+// // @import 'scso/base/lors';
+// // -------------------------- подумать как дарк сдеоать   ????????
+// $primary: #5a61a9; //  основной цвет сайта
+// $secondary: #098494; // доп цвет сайта
+// $accent: #5961a9; // цвет заголовка, кнопки, ссылок
+// $inverse: #fff; // цвет для контраста фона и текста
+
+// $bg-primary: #1ab9ce;
+// $bg-secondary: #098494;
+// $bg-accent: #3309ad;
+// $bg-inverse: #fff;
+
+// $text-primary: #222; // цвет шрифта по умолчанию
+// $text-secondary: #535457;
+// $text-accent: #3309ad;
+// $text-inverse: #fff;
+
+
+
+// // ***  Functions *******************************
+// 	/* adaptiveValue неполноценный, надо где-то у фрилансера подсмотреть, уточнить, что параметр $keepSize делает? Пока предположение:
+// 	-0 - плавное изменение размеров;
+// 	-1 - измение Только если меньше контейнера 
+// 	-2 - измение Только если больше контейнера
+// 	*/
+// @mixin adaptiveValue($property, $startSize, $minSize, $keepSize: 0, $widthFrom: $containerWidth, $widthTo: $minWidth) {
+// 	$addSize: $startSize - $minSize;
+// 	@if $keepSize==1 {
+// 		// Только если меньше контейнера
+// 		#{$property}: $startSize + px;
+// 		@media (max-width: #{$maxWidthContainer + px}) {
+// 			// #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+// 			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$widthTo + px}) / #{$maxWidthContainer - #{$widthTo}}));
+// 		}
+// 	} @else if $keepSize==2 {
+// 		// Только если больше контейнера
+// 		#{$property}: $startSize + px;
+// 		@media (min-width: #{$maxWidthContainer + px}) {
+// 			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+// 		}
+// 	} @else {
+// 		// Всегда
+// 		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+// 	}
+// }
+
+// @function toRem($size) {
+// 	@return calc($size / $baseFontSize) + rem; 
+// }
+// // разобраться с преобразованием ширины брейкпоинтов в em https://youtu.be/x91woHXCcyc?t=1528   
+// // @function toEm($size) {
+// // 	@return calc($size / $baseFontSize) + em; 
+// // }
+
+// // Адаптивный фонт + пример использования
+// // $maxWidth: 1280;
+// @mixin adaptive-font($pcSize, $mobSize){
+// 	$addSize: $pcSize - $mobSize; // 38px - 14px = 24px
+// 	$addMobSize: $addSize + $addSize * 0.7;
+// 	@media(max-width: 767px){
+// 		font-size: calc(#{$mobSize + px} + #{$addMobSize}	* ((100vw - 320px) / #{$maxWidth}));
+// 		// font-size: calc(14px + 24px * 1.7	* ((100vw - 320px) / 1280px));
+// 	}
+// 	@media(min-width: 767px){
+// 		font-size: calc(#{$mobSize + px} + #{$addSize}	* (100vw / #{$maxWidth}));
+// 	}
+// }
+// .text-responsive {
+// 	// font-size: calc(19px + 19 * 1.7	* ((100vw - 320px) / 1280));
+// 	@include adaptive-font(36, 18);
+// }
+
+
+
+// // Ограничительный контейнер ===========================
+// // (i) Стили будут применяться для всех классов, содержащих __container (home__container, main__container etc)
+// @if ($responsiveType == 1) {
+// 	// Отзывчивый
+// 	[class*="__container"] {
+// 		@if ($maxWidthContainer>0) {
+// 			max-width: toRem($containerWidth);
+// 			margin: 0 auto;
+// 		}
+// 		@if ($containerPadding>0) {
+// 			@if ($maxWidthContainer>0) {
+// 				padding: 0 toRem(calc($containerPadding / 2));
+// 			}
+// 			 @else {
+// 				@include adaptiveValue("padding-left", calc($containerPadding / 2), 15, 0);
+// 				@include adaptiveValue("padding-right", calc($containerPadding / 2), 15, 0);
+// 			 }
+// 		}
+// 	}
+// } @else {
+// 	// по брейкпоинтам
+// 	[class*="__container"] {
+// 		margin: 0 auto;
+// 		@if ($maxWidthContainer>0) {
+// 			max-width: toRem($containerWidth);
+// 		} @else {
+// 			@if ($containerPadding>0) {
+// 				padding: 0 toRem(calc($containerPadding / 2));
+// 			}
+// 		}
+// 		@media (max-width: $pc + px) {
+// 			max-width: toRem(970);
+// 		}
+// 		@media (max-width: $tablet + px) {
+// 			max-width: toRem(750);
+// 		}
+// 		@media (max-width: $mobile + px) {
+// 			max-width: none;
+// 			@if ($containerPadding>0 and $maxWidthContainer>0) {
+// 				padding: 0 toRem(calc($containerPadding / 2));
+				
+// 			}
+// 		}
+// 	}
+// }
+
+// *** from freelancer-it https://www.youtube.com/watch?v=XbnAKjjlgc4 
+//  17:10 задаем брейкпоинты
+// .container {
+// 	max-width: 1200px;
+// 	margin: 0 auto;
+// 	padding: 0 15px;
+// }
+
+// @media (max-width:1200px) {
+// 	.container {
+// 		min-width: 970px;
+// 	}
+// }
+
+// @media (max-width:992px) {
+// 	.container {
+// 		min-width: 750px;
+// 	}
+// }
+
+// @media (max-width:762px) {
+// 	.container {
+// 		min-width: none;
+// 	}
+// }
+// *** end from freelancer-it  https://www.youtube.com/watch?v=XbnAKjjlgc4 
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	color: #000;
+	// background-color: #0ff;
+	// font-size: 16px;
+	@include adaptiveValue("font-size", 16, 12);
+	// ###  я поставил, посмотреть, как правильно в первой части, гд шапка делается
+	font-family: $fontFamily;
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	a {
+		text-decoration: none;
+	}
+	// ### END  я поставил, посмотреть, как правильно в первой части, гд шапка делается
+	&._lock {
+		overflow: hidden;
+	}
+}
+
+.body__column {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	background-position: center;
+	background-size: cover;
+	background-color: rgb(209 213 219 / 1);
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+// ОСНОВНАЯ СЕТКА от фронтендера ********************************************************************
+// ._container {
+// 	max-width: $maxWidthContainer + px;
+// 	margin: 0 auto;
+// 	@media (max-width: $md1+px) {
+// 		max-width: 970px;
+// 	}
+// 	@media (max-width: $md2+px) {
+// 		max-width: 750px;
+// 	}
+// 	@media (max-width: $md3+px) {
+// 		max-width: none;
+// 		padding: 0 10px;
+// 	}
+// }
+
+// ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ от фронтендера
+// @import "forms";
+// @import "ui";
+
+// ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ ГОТОВЫХ СТРАНИЦ И ЭЛЕМЕНТОВ от фронтендера
+// @import "datepicker";
+// @import "popup";
+// @import "header";
+// @import "footer";
+
+// ОСНОВНОЙ БЛОК **********************************************************************
+// ВЫНЕСТИ в отдельный файл ???
+.page {
+	padding: 160px 0 0 0;
+	flex: 1 1 auto;
+	&__container {
+		display: flex;
+	}
+	&__side {
+		flex: 0 0 260px;
+	}
+	&__menu { }
+	&__content {
+		flex: 1 1 auto;
+		padding: 0 0 0 30px;
+	}
+}
+
+// end ОСНОВНОЙ БЛОК *********************************************************************
+
+// HEADER *****************	
+.header {
+	background-color: $bg-inverse;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.2);
+	&__container {
+		min-height: toRem(80);
+		display: grid;
+		// grid-template-columns: toRem(150) 1fr toRem(100) toRem(100);
+		grid-template-columns: max-content 1fr max-content max-content;
+		@media (max-width: $mobile + px) {
+			// grid-template-rows: [row1-start] max-content [row1-end] 100vh [last];
+			grid-template-areas: 
+			"logo menuicon darkmode lang"
+			"menu menu menu menu";
+			padding: 0;
+		}
+		align-items: center;
+		// gap: toRem(15);
+		// padding-top: toRem(20);
+		// padding-bottom: toRem(20);
+		> * {
+			// padding-top: toRem(20);
+			// padding-bottom: toRem(20);
+			@include adaptiveValue("padding", 18, 12, 0);
+		}
+	 }
+	&__logo {
+		// max-height: toRem(30);
+		position: relative;
+		display: flex;
+		align-items: center;
+		z-index: 5;
+		@media (max-width: $mobile + px) {
+			grid-area: logo;
+		}
+		& img {
+			// max-height: toRem(80);
+			@include adaptiveValue("max-height", 120, 60, 0);
+		}
+	 }
+	&__menu-body {
+		position: relative;
+		// grid-column-start: 2;
+		// grid-column-end: 3;
+		// grid-row-start: 1;
+		// grid-row-end: 2;
+		// background-color: #adf;
+		color: $primary;
+		@media (max-width: $mobile + px) {
+			padding: 0;
+			grid-area: menu;
+			// display: none;
+			// grid-column-start: 1;
+			// grid-column-end: end;
+			// grid-row-start: 2;
+			// grid-row-end: 3;
+			// background-color: #adf;
+
+		}
+	}
+	&__menu-icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@media (max-width: $mobile + px) {
+			grid-area: menuicon;
+		}
+	}
+	&__dark_mode {
+		justify-self: end;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		background-color: $primary;
+		height: 100%;
+		z-index: 5;
+		@media (max-width: $mobile + px) {
+			grid-area: darkmode;
+		}
+		& button {
+			background-color: #fff;
+			border-radius: toRem(5);
+		}
+		& button > * {
+			width: toRem(24);
+			height: toRem(24);
+		}
+		//  если нужно чото вставить, типа круглый
+		// &::before {
+		// 	content: '';
+		// 	background-color: #ee0909;
+		// 	flex: 0 0 toRem(10);
+		// flex-shrink: 0; // можно использовать вместо flex: 0 0 toRem(10); и width: toRem(10);
+		// 	width: toRem(10);
+		// 	height: toRem(10);
+		// 	border-radius: 50%;
+		// }
+	}
+	&__lang {
+		display: flex;
+		align-items: center;
+		background-color: $primary;
+		height: 100%;
+		z-index: 5;
+		@media (max-width: $mobile + px) {
+			grid-area: lang;
+		}
+		.custom-select {
+			border-radius: toRem(5);
+			border: 1px solid #fff;
+			color: #fff;
+		}
+		.options {
+			color: #000;
+		}
+		i {
+			color: #fff;
+			// padding-left: toRem(6);
+		}
+	}
+}
+.menu {
+	// justify-self: center;
+	&__body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@media (max-width: $mobile + px) {
+			// position: absolute;
+			width: 100%;
+			height: 0;
+			top: 0;
+			left: 0;
+			background-color: $bg-inverse;
+			transition: all 0.5s ease-in-out;
+			overflow: hidden;
+			&::before {
+				// content: '';
+				// position: fixed;
+				// width: 100%;
+				// height: toRem(100);
+				// top: 0;
+				// left: 0;
+				// background-color: $bg-primary;
+				// z-index: 2;
+				// box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.2);
+			}
+			&.open-menu {
+				height: 100vh;
+				.menu__list {
+					// justify-content: space-around;
+					// align-items: center;
+					padding: toRem(20) 0 ;
+					@include adaptiveValue("row-gap", 80, 15, 0);
+				}
+			}
+		}
+	}
+	&__list {
+		background-color: #f0f;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		@media (min-width: $mobile + px) {
+			flex-direction: row;
+		}
+		flex-wrap: wrap;
+		row-gap: toRem(3);
+		@include adaptiveValue("column-gap", 53, 15, 0);
+		transition: all .7s ease-in-out;
+
+	 }
+	&__sub-list {
+		padding: 10px;
+		max-width: 300px;
+		background-color: $bg-inverse;
+		border: 1px solid;
+		@media (max-width: $mobile + px) {
+			max-width: 90%;
+			border: none;
+		}
+	}
+	&__item {
+		position: relative;
+		padding: toRem(10);
+		border-radius: toRem(5);
+		// border: 1px solid;
+		@media (max-width: $mobile + px) {
+			background-color: $bg-inverse;
+			box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.2);
+			&.active {
+				position: absolute;
+				left: 11%;
+				z-index: 11;
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $bg-primary;
+			}
+		}
+	 }
+	 &__sub-item {
+		padding: toRem(10);
+		line-height: 1.1;
+		position: relative;
+	 }
+	&__link {
+		font-weight: 700;
+		line-height: 1.3;
+		letter-spacing: 1.3px;
+	 }
+	&__icon {
+		
+	 }
+	.submenu {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		margin: 6px 0 0;
+		@media (max-width: $mobile + px) {
+			position: initial;
+			margin: 8px 0;
+		}
+	}
+	.submenu .submenu {
+		top: 0;
+		left: 100%;
+		margin: 0 0 0 12px;
+		@media (max-width: $mobile + px) {
+			position: initial;
+			margin: 8px 0;
+		}
+	}
+	li.has-submenu>a {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	&::after {
+		content: '>';
+		margin-left: 6px;
+		}
+	}
+	.has-submenu.active > .submenu {
+		display: block;
+	}
+}
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile + px) {
+		display: flex;
+		
+		.menu-btn-flip {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 80px;
+			height: 80px;
+			cursor: pointer;
+			transition: all .5s ease-in-out;
+		}
+
+		.menu-btn__burger-close, .menu-btn__burger-open {
+			width: 36px;
+			height: 3px;
+			background: #939393;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(255,101,47,.2);
+			transition: all .5s ease-in-out;
+		}
+		.menu-btn__burger-close::before,
+		.menu-btn__burger-close::after, .menu-btn__burger-open::before,
+		.menu-btn__burger-open::after {
+			content: '';
+			position: absolute;
+			width: 36px;
+			height: 3px;
+			background: #939393;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(255,101,47,.2);
+			transition: all .5s ease-in-out;
+		}
+		.menu-btn__burger-close::before, .menu-btn__burger-open::before {
+			transform: translateY(-12px);
+		}
+		.menu-btn__burger-close::after, .menu-btn__burger-open::after {
+			transform: translateY(12px);
+		}
+
+		.menu-btn__burger-open {
+			transform: translateX(-50px);
+			background: transparent;
+			box-shadow: none;
+		}
+		.menu-btn__burger-open::before {
+			transform: rotate(45deg) translate(35px, -35px);
+		}
+		.menu-btn__burger-open::after {
+			transform: rotate(-45deg) translate(35px, 35px);
+		}
+
+			/* animation */
+		.front, .back {
+			backface-visibility: hidden;
+			position: absolute; 
+			width: 100%; 
+			height: 100%; 
+			left: 0; 
+			top: 0; 
+			display: flex; 
+			justify-content: center; 
+			align-items: center; 
+			transition: 1s; 
+		}
+		/* меняем X Y rotate - разные эффекты */
+		.back {
+		/*   transform: rotateX(180deg);  */
+			transform: rotateY(180deg); 
+		}
+
+		.menu-btn-flip._active .back {
+		/*   transform: rotateX(360deg); */
+			transform: rotateY(360deg);
+		}
+		.menu-btn-flip._active .front {
+			transform: rotateX(180deg);
+		/*   transform: rotateY(180deg); */
+		}
+	}
+ }
+
+//  .open-menu .menu__list {
+// 	background: #a24;
+//  }
+
+// Block Hero (components\jusu\_hero-text.htm)*********************
+.heroadvance {
+	@include adaptiveValue("padding-bottom", 10, 8, 0);
+ }
+.txtblock {
+	&__header {
+		@include adaptiveValue("padding-top", 20, 18, 0);
+		// @include adaptiveValue("padding-bottom", 20, 18, 0);
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 30, 20, 0);
+		}
+	 }
+	&__title {
+		@include adaptiveValue("font-size", 28, 18, 0);
+		font-weight: 700;
+		line-height: 1.27;
+		letter-spacing: 1.1px;
+		color: $text-accent;
+		@include adaptiveValue("margin-bottom", 20, 16, 0);
+		text-transform: uppercase;
+		text-align: center;
+	 }
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		@include adaptiveValue("gap", 50, 30, 0);
+		@media (max-width: $mobile + px) {
+			grid-template-columns: 1fr;
+		}
+	}
+	&__text {
+		max-width: 577px;
+		@media (max-width: $mobile + px) {
+			max-width: 100%;
+		}
+		& p {
+			@include adaptiveValue("margin-bottom", toRem(18), 12, 0);
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 6, 4, 0);
+			}
+		}
+		li::before {
+			padding-right: toRem(10);
+			color: $text-accent;
+		}
+	 }
+	&__subtitle {
+		@include adaptiveValue("font-size", 22, 18, 0);
+		font-weight: 700;
+		line-height: 1.27;
+		letter-spacing: 1.1px;
+		color: $text-secondary;
+		@include adaptiveValue("padding", 30, 20, 0);
+	 }
+	&__img {
+		width: 100%;
+		.tagline {
+			width: 40%;
+			@include adaptiveValue("font-size", 22, 18, 0);
+			font-weight: 700;
+			line-height: 1.27;
+			&:last-child {
+				border-bottom: 2px solid $text-primary;
+				opacity: .5;
+			}
+		}
+	 }
+	&__footer { }
+}
+.txtblock-imgr { }
+// End Block Hero *********************
+
+
+// Block Services (components\jusu\_services.htm)*********************
+.services {
+	&__container {
+		@include adaptiveValue("padding-bottom", 120, 40, 0);
+		@include adaptiveValue("padding-top", 120, 40, 0);
+	 }
+	&__block-header {
+		// max-width: toRem(560);
+		margin: 0 auto;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 30, 20, 0);
+		}
+	 }
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(toRem(320), 1fr));
+		gap: toRem(20);
+		// @media (max-width: $mobile + px) {
+		// 	grid-template-columns: 1fr;
+		// }
+	 }
+	&__item { }
+}
+// block-header - вынести отдельно в общие??? !!!!*****!!!!
+.block-header {
+	&--center { }
+	&__title { }
+	&__text { }
+}
+.item-service {
+	@include adaptiveValue("padding", 32, 15, 0);
+	border-radius: toRem(24);
+	border: 1px solid $bg-inverse;
+	&--blue {
+		text-align: center;
+		background-color: $bg-inverse
+	 }
+	&__icon {
+		width: toRem(72);
+		height: toRem(72);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: toRem(20);
+		background-color: $bg-primary;
+		@media (max-width: $mobile + px) {
+				margin: auto;
+			}
+		img {
+			max-width: 100%;
+		}
+		&:not(:last-child) {
+			margin-bottom: toRem(16);
+		}
+	 }
+	&__title {
+		@include adaptiveValue("font-size", 22, 18, 0);
+		font-weight: 700;
+		line-height: 1.27;
+		color: $text-accent;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 12, 10, 0);
+		}
+	 }
+	&__text {
+		line-height: 1.5;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 12, 10, 0);
+		}
+	 }
+	&__button { }
+}
+
+// End Block Services *********************
+
+
+// Block Steps (components\jusu\_steps.htm)*********************
+.steps {
+	@include adaptiveValue("padding-bottom", 120, 40, 0);
+	@include adaptiveValue("padding-top", 120, 40, 0);
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: toRem(20);
+		@media (max-width: $tablet + px) {
+			grid-template-columns: auto;
+			gap: toRem(30);
+		}
+	 }
+	&__img {
+		max-width: 100%;
+		transform: translate(-10.59%, 0);
+		order: 2;
+	 }
+	&__content { }
+	&__block-header {
+		max-width: toRem(460);
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 60, 30, 0);
+		}
+	 }
+	&__list {
+	 }
+}
+.list-steps {
+	display: grid;
+	// grid-template-columns: repeat(auto-fit, minmax(toRem(320), 1fr));
+	grid-template-columns: auto-fit, minmax(toRem(320), 1fr);
+	@include adaptiveValue("gap", 50, 20, 0);
+	
+	//счетчик итемов
+	list-style-type: none;
+	counter-reset: item;
+	li {
+		position: relative;
+		&::before {
+			counter-increment: item;
+			content: counter(item) ".";
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+	&__item {
+		padding-left: toRem(60);
+		display: grid;
+		grid-template-columns: toRem(172) auto;
+		gap: toRem(35);
+		&::before {
+			@include adaptiveValue("font-size", 52, 30, 0);
+			font-weight: 700;
+			color: $text-inverse;
+			line-height: 1;
+		}
+		@media (max-width: $mobile + px) {
+			grid-template-columns: 1fr;
+		}
+	 }
+	&__title {
+		color: $text-accent;
+		@include adaptiveValue("font-size", 24, 18, 0);
+		font-weight: 700;
+		line-height: 1.27;
+	 }
+	&__text { }
+}
+// End Block Steps *********************
+
+
+// Block Slider (components\jusu\_slider.htm)*********************
+.slider {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content:center;
+		padding-top: toRem(80);
+		padding-bottom: toRem(80);
+	 }
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: toRem(20);
+		@include adaptiveValue("margin-bottom", 144, 30, 0);
+	 }
+	&__title { }
+	
+	&__body {}
+	&__wrapper {
+		align-items: stretch !important;
+	}
+	&__slide {
+		border: 1px solid $bg-inverse;
+		border-radius: toRem(6);
+	}
+	&__controls {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: toRem(20);
+	 }
+	&__arrow {
+		width: toRem(40);
+		height: toRem(40);
+		color: $text-accent;
+		background-color: $bg-inverse;
+		border-radius: toRem(10);
+		font-size: toRem(24);
+		line-height: 1.8;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $bg-primary;
+			}
+		}
+		&.swiper-button-disabled {
+			opacity: .5;
+			cursor: default;
+		}
+	 }
+	&__arrow_left { }
+	&__arrow_right { }
+	&__pagination {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: toRem(20);
+		padding: toRem(20) 0;
+	}
+}
+
+.__icon-slider-arrow { } // ??? чот он мне не нра, надо исправить
+
+.item-slider {
+	border-radius: toRem(6);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	padding: toRem(20);
+	min-height: 100%;
+	&__img {
+		// padding-bottom: 35%;
+		overflow: hidden;
+		opacity: 0.6;
+		transition: all .8s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				opacity: 1;
+				transform: scale(1.05);
+			}
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	 }
+	&__body {
+		padding: toRem(24);
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+		// justify-content: space-between;
+		gap: toRem(20);
+	 }
+	&__title {
+		flex: 1 1 100%;
+	 }
+	&__link-title {
+		color: $text-accent;
+		@include adaptiveValue("font-size", 24, 18, 0);
+		font-weight: 500;
+		line-height: 1.27; // math.div(24, 16);
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	 }
+	&__footer {
+		display: flex;
+		align-items: center;
+		gap: toRem(16);
+	 }
+	&__category { }
+}
+.swiper {
+	width: 400px;
+}
+// End Block Slider *********************
+
+
+// Block Careers (components\jusu\_careers.htm)*********************
+
+
+// End Block Careers *********************
+
+.career {
+	&__container {
+		@include adaptiveValue("padding-bottom", 30, 20, 0);
+		@include adaptiveValue("padding-top", 80, 40, 0);
+		display: grid;
+		align-content: center; // ??
+		grid-auto-flow: column;
+		grid-template-columns: minmax(toRem(190), toRem(260)) 1fr;
+		grid-template-rows: auto 1fr;
+		@include adaptiveValue("column-gap", 144, 20, 0);
+		@include adaptiveValue("row-gap", 80, 20, 0);
+		@media (max-width: $mobile + px) {
+			grid-auto-flow: row;
+			grid-template-columns: 1fr;
+
+		}
+	 }
+	&_title { }
+	
+	&__navigation {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		gap: toRem(8);
+		align-content: flex-start;
+		@media (max-width: $mobile + px) {
+			flex-direction: row;
+			&> * {
+				flex: 0 1 50px;
+			}
+		}
+	 }
+	&__content {
+		grid-row: span 2;
+	 }
+}
+.navigation-career {
+	&__title {
+		padding: toRem(14) toRem(24);
+		line-height: 1.27;
+		text-align: left;
+		transition: all .3s ease 0s;
+		@media (max-width: $mobile + px) {
+			border: 1px solid $bg-inverse;
+			border-radius: 15px 15px 0 0;
+		}
+		&._tab-active {
+			display: flex;
+			justify-content: space-between;
+			// background-color: #fff;
+			color: $text-accent;
+			&::after {
+				content: "\ea34";
+				font-family: icomoon;
+				padding-left: 5px;
+			}
+			@media (max-width: $mobile + px) {
+				background-color: $bg-inverse;
+			}
+		}
+	 }
+}
+._tab-active { }
+
+.content-career {
+	&__body { }
+	&__header {
+		@include adaptiveValue("padding-bottom", 32, 20, 0);
+		border-bottom: 1px solid $bg-inverse;
+	 }
+	&__title {
+		font-weight: 600;
+		font-size: toRem(18);
+		line-height: 1.27;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 8, 6, 0);
+		}
+	 }
+	&__link-title {
+		text-decoration: underline;
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	 }
+	&__subtitle {
+		color: $text-secondary;
+		font-size: toRem(14);
+		line-height: 1.27;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 8, 6, 0);
+		}
+	 }
+	&__time {
+		color: $text-secondary;
+		font-size: toRem(14);
+		line-height: 1.27;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 16, 9, 0);
+		}
+	 }
+	&__categories {
+		display: flex;
+		flex-wrap: wrap;
+		gap: toRem(8);
+		.category-link {
+			color: $text-accent;
+			background-color: $bg-inverse;
+			border-radius: toRem(8);
+			font-weight: 700;
+			padding: toRem(8) toRem(16);
+		 }
+	 }
+	&__main {
+		@include adaptiveValue("padding-top", 32, 20, 0);
+		p {
+			@include adaptiveValue("padding-bottom", 10, 6, 0);
+		}
+	 }
+	&__list { }
+}
+
+.list-content-career {
+	&__item {
+		color: $text-secondary;	
+		line-height: 1.27;
+		position: relative;
+		padding-left: toRem(24);
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 16, 9, 0);
+		}
+		&::before {  // для флна можно замутить
+			margin-right: toRem(8);
+			@include adaptiveValue("font-size", 12, 10, 0);
+			// 	content: "";
+		// 	background-color: $bg-accent;
+		// 	width: toRem(6);
+		// 	height: toRem(5);
+		// 	position: absolute;
+		// 	left: 0;
+		// 	top: toRem(8);
+		}
+	 }
+}
+
+// Дляjs переключателя табов, поменять потом ???????
+/* Скрыть все табы, кроме активного */
+[data-tabs-body] > .content-career__body {
+  display: none;
+}
+
+/* Показать активный таб */
+[data-tabs-body] > .content-career__body._tab-active {
+  display: block;
+}
+
+/* Стили для активного заголовка */
+[data-tabs-titles] .navigation-career__title._tab-active {
+  font-weight: bold;
+}
+
+/* Стили для неактивных заголовков */
+[data-tabs-titles] .navigation-career__title {
+  cursor: pointer;
+  color: #333;
+}
+// End Для js переключателя табов, поменять потом ???????
+
+
+// End Block Careers (components\jusu\_careers.htm)*********************
+
+
+// Block Blog (components\jusu\_blog.htm)*********************
+.blog {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		@include adaptiveValue("padding-top", 62, 30, 0);
+		@include adaptiveValue("padding-bottom", 32, 20, 0);
+	 }
+	&__title {
+		@include adaptiveValue('margin-bottom', 92, 30, 0);
+		text-align: center;
+	 }
+	&__items { 
+		align-self: stretch;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(toRem(280), 1fr));
+		gap: toRem(24);
+	}
+	&__item { }
+}
+.item-blog {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border: 1px solid $bg-inverse;
+	border-radius: toRem(6);
+	overflow: hidden;
+	&__img {
+		overflow: hidden;
+		padding-bottom: toRem(24);
+		transition: all .8s ease 0s;
+		align-self: center;
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+	 }
+	&__body {
+		padding: toRem(16);
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+		gap: toRem(16);
+	 }
+	&__title {
+		font-weight: 500;
+		font-size: toRem(22);
+		line-height: 1.27;
+		color: $text-accent;
+		transition: all .8s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	 }
+	&__link-title { }
+	&__date {
+		align-self: start;
+	 }
+	&__text { 
+		flex: 1 1 auto;
+	}
+	&__link {
+		margin-top: toRem(16);
+		align-self: center;
+		transition: all .8s ease 0s;
+		padding: toRem(8) toRem(16);
+		border: 1px solid $bg-primary;
+		border-radius: toRem(6);
+		color: $text-inverse;
+		background-color: $bg-accent;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $text-accent;
+				border-color: $bg-accent;
+				background-color: $bg-inverse;
+			}
+		}
+	 }
+}
+.date {
+	color: $text-secondary;
+	font-size: toRem(12);
+	line-height: 1.27;
+	background-color: $bg-inverse;
+	padding: toRem(4) toRem(8);
+	border-radius: toRem(6); }
+// End Block Blog (components\jusu\_blog.htm)*********************
+
+
+// Block Testimonial (components\jusu\_testimonials.htm)*********************
+.testimonials {
+	background-color: $bg-primary;
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		@include adaptiveValue("padding-top", 62, 30, 0);
+		@include adaptiveValue("padding-bottom", 32, 20, 0);
+	 }
+	&__title {
+		@include adaptiveValue('margin-bottom', 92, 30, 0);
+	 }
+	&__items { 
+		// align-self: stretch;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(toRem(280), 1fr));
+		@include adaptiveValue("column-gap", 40, 20, 0);
+		@include adaptiveValue("row-gap", 80, 60, 0);
+	}
+	&__item { }
+}
+.item-testimonials {
+	background-color: $bg-inverse;
+	border-radius: toRem(6);
+	display: flex;
+	flex-direction: column;
+	padding-bottom: toRem(24);
+	@include adaptiveValue("padding-left", 38, 16, 0);
+	@include adaptiveValue("padding-right", 38, 16, 0);
+	&__avatar { 
+		border-radius: 50%;
+		overflow: hidden;
+		width: toRem(96);
+		height: toRem(96);
+		align-self: center;
+		// transform: translate(0, -50%);
+		margin-top: toRem(-48);
+		&:not(:last-child) {
+			margin-bottom: toRem(32);
+		}
+	}
+	&__text {
+		flex: 1 1 auto;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 48, 20, 0);
+		}
+	 }
+	&__name {
+		font-size: toRem(14);
+		font-weight: 500;
+		line-height: 1.27;
+	 }
+	&__profession { 
+		align-self: flex-start;
+	}
+}
+
+// End Block Testimonial (components\jusu\_testimonials.htm)*********************
+
+
+// Block FAQ (components\jusu\_faq.htm)*********************
+.faq {
+	@include adaptiveValue("padding-top", 120, 40, 0);
+	@include adaptiveValue("padding-bottom", 120, 40, 0);
+	&__container { 
+		display: grid;
+		grid-template-columns: auto 58%;
+		gap: toRem(20);
+		@media (max-width: $mobile + px) {
+			grid-template-columns: 1fr;
+		}
+	}
+	&__title {
+		a {
+			color: $text-accent;
+		}
+		@media (max-width: $mobile + px) {
+			text-align: center;
+		}
+	 }
+	&__spollers { }
+}
+.spollers-faq {
+	display: grid;
+	gap: toRem(12);
+	&__item {
+		@include adaptiveValue("font-size", 20, 16, 0);
+		text-align: left;
+		padding: toRem(10) toRem(15);
+		border: 1px solid $bg-inverse;
+		border-radius: toRem(6);
+	 }
+	&__title { 
+		@include adaptiveValue("padding-top", 24, 16, 0);
+		@include adaptiveValue("padding-bottom", 24, 16, 0);
+		@include adaptiveValue("padding-left", 32, 24, 0);
+		@include adaptiveValue("padding-right", 32, 24, 0);
+		// @include adaptiveValue("font-size", 22, 16, 0);
+		width: 100%;
+		font-weight: 700;
+	}
+	&__body { }
+}
+
+	// End Block FAQ (components\jusu\_faq.htm)*********************
+
+	// Block Contacts (components\jusu\_contacts.htm)*********************
+.contacts {
+	&__container { 
+		display: flex;
+		flex-direction: column;
+		gap: toRem(32);
+	}
+	&__title { 
+		@include adaptiveValue("margin-bottom", 38, 24, 0);
+	}
+	&__items {
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(24);
+		@media (max-width: $mobile + px) {
+			flex-direction: column;
+		}
+	 }
+	&__item {
+		@include adaptiveValue("padding", 32, 15, 0);
+		border-radius: toRem(6);
+		border: 1px solid $bg-inverse;
+	 }
+	&__footer {
+		 display: grid;
+		 grid-template-columns: 1fr auto;
+		 gap: toRem(24);
+		 @media (max-width: $mobile + px) {
+			grid-template-columns: 1fr;
+		 }
+		}
+	&__map {
+		width: 100%;
+		min-height: 50vh;
+		@media (max-width: $mobile + px) {
+			order: -1;
+		}
+	}
+	&__form {
+		justify-self: center;
+	 }
+}
+.item-contacts {
+	@include adaptiveValue("padding", 32, 15, 0);
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: toRem(16);
+	&__img {
+		@include adaptiveValue("font-size", 36, 24, 0);
+		color: $text-accent;
+	 }
+	&__body { }
+	&__title {
+		@include adaptiveValue("margin-bottom", 16, 8, 0);
+		@include adaptiveValue("font-size", 22, 18, 0);
+		font-weight: 700;
+		line-height: 1.27;
+		color: $text-accent;
+
+	 }
+	&__text {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: toRem(8);
+		grid-auto-rows: minmax(auto, auto);
+	 }
+	&__label {}
+	&__value {}
+}
+
+
+	// End Block Contacts (components\jusu\_contacts.htm)*********************
+.footer {
+	@include adaptiveValue("padding-top", 24, 12, 0);
+	@include adaptiveValue("padding-bottom", 24, 12, 0);
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: toRem(24);
+		justify-content: space-between;
+		@media (max-width: $mobile + px) {
+			grid-template-columns: 1fr;
+		}
+	}
+	&__copyright {
+		@include adaptiveValue("font-size", 14, 10, 0);
+		grid-column: span 2;
+		text-align: center;
+	}
+}
+////////// Общие БЭМ-блоки и прочее //////////
+.block-header {
+	display: grid;
+	gap: toRem(24);
+	&--center {
+		text-align: center;
+	}
+	&--inline {
+		grid-template-columns: minmax(auto, toRem(586)) minmax(auto, toRem(613));
+		justify-content: space-between;
+		gap: toRem(24);
+		align-items: end;
+	}
+	&__title {
+		color: $text-accent;
+		@include adaptiveValue("font-size", 52, 32, 0);
+		font-weight: 700;
+		line-height: 1.27;
+		&--big {
+			@include adaptiveValue("font-size", 64, 32, 0);
+		}
+		&--white {
+			color: #fff //$text-inverse;
+		}
+	 }
+	&__text { }
+}
+
+.title {
+	&__label {
+		position: relative;
+		display: inline-block;
+		font-weight: 200;
+		@include adaptiveValue("font-size", 12, 10, 0);
+		letter-spacing: toRem(5);
+		text-transform: uppercase;
+		padding-left: 24px;
+		color: $text-primary;
+		&::before {  // для флна можно замутить
+			// margin-right: toRem(8);
+			// @include adaptiveValue("font-size", 12, 10, 0);
+			content: "";
+			background-color: $bg-accent;
+			width: toRem(12);
+			height: toRem(1);
+			position: absolute;
+			left: 0;
+			top: toRem(8);
+		}
+	 }
+	&__value {
+		font-weight: 700;
+		color: $text-accent;
+		@include adaptiveValue("font-size", 32, 22, 0);
+		line-height: 1;
+		@include adaptiveValue("margin-top", 20, 10, 0);
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 20, 10, 0);
+		}
+	 }
+	&__text {
+		
+	}
+}
+
+.form {
+	flex: 1 1 auto;
+	max-width: toRem(320);
+	display: grid;
+	gap: toRem(20);
+	@include adaptiveValue("padding", 40, 20, 0);
+	border-radius: toRem(6);
+	background-color: $bg-primary;
+	border: 1px solid $bg-inverse;
+	&__input { 
+		height: 2.5rem;
+		padding: 1rem;
+		width: 100%;
+		border-radius: toRem(6);
+	}
+	textarea.form__input {
+		height: 6.25rem;
+		resize: vertical;
+	}
+	&__options { }
+	&__file { }
+	&__checkbox { }
+	&__button {
+		height: 2.5rem;
+		width: 100%;
+		text-transform: uppercase;
+		font-weight: 700;
+		letter-spacing: 0.125rem;
+	 }
+	}
+	.options-form {
+		display: grid;
+		gap: toRem(20);
+		&__title { 
+			color: $text-inverse;
+		}
+		&__item { 
+			position: relative;
+		}
+		&__input {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 1rem;
+			height: 1rem;
+			cursor: pointer;
+			opacity: 0;
+			z-index: 5;
+		 }
+		&__text {
+			padding-left: 1.6rem;
+			color: $text-accent;
+			cursor: pointer;
+			display: inline-block;
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 1rem;
+				height: 1rem;
+				border: 1px solid #f1f;
+				border-radius: 50%;
+				transition: all .3s ease 0s;
+				background-color: $bg-inverse;
+			}
+		 }
+	}
+	.options-form__input:checked + .options-form__text::before {
+		background-color: $bg-accent;
+	}
+	.options-form__input:focus-visible + .options-form__text::before {
+		outline: 0.062rem solid $bg-inverse;
+	}
+
+
+	.file-form {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: toRem(20);
+		min-width: 0;
+		&__item {
+			flex: 0 0 auto;
+			position: relative;
+		}
+		&__input { 
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			font-size: 0;
+			opacity: 0;
+			pointer-events: none;
+		}
+		&__name {
+			color: $text-inverse;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		 }
+	}
+	.file-form__input:focus-visible + .file-form__button {
+		outline: 1px solid $bg-accent;
+	}
+	.button { 
+		border-radius: toRem(6);
+		background-color: $bg-accent;
+		color: $text-inverse;
+		transition: all .3s ease 0s;
+		&:hover {
+			background-color: $bg-primary;
+		}
+	}
+	.file-form_button {
+		padding: 0.5rem 0px 0px;
+		border: 1px solid $bg-inverse;
+		cursor: pointer;
+	 }
+	.checkbox-form {
+		position: relative;
+		&__input { 
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 1rem;
+			height: 1rem;
+			opacity: 0;
+			z-index: 5;
+		}
+		&__text { 
+			padding-left: 1.5rem;
+			color: $text-accent;
+			cursor: pointer;
+			display: inline-block;
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 1rem;
+				height: 1rem;
+				border: 1px solid #f1f;
+				border-radius: 50%;
+				transition: all .3s ease 0s;
+				background-color: $bg-inverse;
+				z-index: 2;
+			}
+		}
+	}
+	.checkbox-form__input:checked + .checkbox-form__text::before {
+		background-color: $bg-accent;
+	}
+	.checkbox-form__input:focus-visible + .checkbox-form__text::before {
+		outline: 0.062rem solid $bg-inverse;
+	}
+
+///////// End Общие БЭМ-блоки и прочее //////////
+
+
+// Custom select *********************
+.custom-select {
+	position: relative;
+	width: 100%;
+	// &::before {
+	// 	content: "";
+	// 	position: absolute;
+	// 	top: 10px;
+	// 	left: 30px;
+	// 	width: 100%;
+	// 	height: 510px;
+	// 	background-color: rgb(218, 11, 125);
+	// }
+}
+
+.select-box {
+	position: relative;
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.selected-option {
+	flex-grow: 1;
+}
+
+.arrow-down {
+	margin-left: 10px;
+}
+
+.options {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+	display: none;
+	&.show {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		padding: 6px;
+	}
+}
+
+.options li {
+	// padding: 5px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.options li:hover {
+	background-color: #f2f2f2;
+}
+// End Custom select *********************
+
+
+//  Block Breadcrumbs (components\jusu\_breadcrumbs.htm)*********************
+.breadcrumbs {
+	@include adaptiveValue("margin-bottom", 24, 16, 0);
+	@include adaptiveValue("margin-top", 170, 136, 0);
+	&__container {	}
+	ul {
+		display: flex;
+		li {
+			@include adaptiveValue("margin-left", 16, 8, 0);
+			a {
+				&::before {
+					margin-right: 6px;
+				}
+			}
+		}
+	}
+}
+
+// End Block Breadcrumbs
+
+
+// Block Spollers ог ФПЖ (часть 4 13:41)*********************
+// .spollers {}
+// .spollers-item {
+// 	font-size: toRem(16);
+// }
+// .spollers__title {
+	
+// 	@include adaptiveValue("padding-top", 24, 16, 0);
+// 	@include adaptiveValue("padding-bottom", 24, 16, 0);
+// 	@include adaptiveValue("padding-left", 32, 24, 0);
+// 	@include adaptiveValue("padding-right", 32, 24, 0);
+// 	// @include adaptiveValue("font-size", 22, 16, 0);
+// 	position: relative;
+// 	width: 100%;
+// 	font-weight: 700;
+// 	cursor: default;
+// 	text-align: left;
+// 	padding: toRem(10) toRem(15);
+// 	border: 1px solid $bg-inverse;
+// 	border-radius: toRem(6);
+// 	list-style: none;
+// 	&::marker {	}
+// 	.spoller-init & {
+// 		cursor: pointer;
+// 		&::after,
+// 		&::before {
+// 			content: "";
+// 			position: absolute;
+// 			top: 50%;
+// 			right: toRem(10);
+// 			width: toRem(16);
+// 			height: toRem(2);
+// 			background-color: $text-primary;
+// 			transition: transform .8s ease 0s;
+// 		}
+// 		&::before {
+// 			transform: translate(-75%, -50%) rotate(45deg);
+// 		}
+// 		&::after {
+// 			transform: translate(0, -50%) rotate(-45deg);
+// 		}
+// 		&.spoller-active {
+// 			&::before {
+// 				transform: translateX(-75%) rotate(-45deg);
+// 			}
+// 			&::after {
+// 				transform: rotate(45deg);
+// 			}
+// 		}
+// 	}
+//  // еще чото надо
+// }
+// End Block Spollers ог ФПЖ (часть 4 13:41)*********************
+
+.dark {
+	body {
+		color: $text-inverse;
+	}
+	.body__column {
+		background-color: $bg-secondary;
+	}
+}
+
+
+// Тест мобильного меню от chatGPT Grimore*********************
+
+
+#menu-icon {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 30px;
+  cursor: pointer;
+	z-index: 1000;
+}
+
+#menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #f8f9fa;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.menu-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #343a40;
+  color: white;
+}
+
+.menu-header input {
+  flex-grow: 1;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.menu-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+	z-index: 1000;
+}
+
+.menu-level {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+  left: 100%;
+  top: 0;
+  transition: left 0.3s ease;
+}
+
+.menu-level > li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.menu-level.active {
+  left: 0;
+	margin-top: 60px;
+	background-color: #bceb84;
+}
+
+
+// End Тест мобильного меню от chatGPT*********************

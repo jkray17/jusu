@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+  @@include('layout/_head.htm', {
+    "title": "Стартовая страница"
+  })
+
+  
+
+  <body class="flex flex-col h-screen bg-center bg-cover bg-gray-300">
+  <div class="w rapper">
+     @@include('layout/_header.htm', {})
+    <main class="page">
+      Сделать разметку на гридах!!!!!!!!!!!!!!!!!!!
+    </main>
+        
+          <div class="container">
+            @@include('components/_navbar_drop_fb.html', {})
+            <!-- @@include('components/_navbar_te.html', {}) -->
+            @@include('components/test/_example_card-img-text-btn.html', {"title":"проброс Заголовока через переменную САНЯ ЧАЙНИК>><br>"})
+          </div>
+
+
+          <div class="home__container">
+            Далеко-далеко за словесными горами  в стране, гласных и согласных живут рыбные тексты. Свое текстами обеспечивает lorem букв языкового что страну маленький, текст заманивший имеет родного лучше жизни бросил все деревни, маленькая власти ipsum рукописи до ты строчка прямо это. Которой прямо семь, сих но проектах на берегу. Маленький, океана! Страну свой текстов вопрос но все жизни, встретил домах, родного буквоград одна они запятой ручеек дорогу имеет грустный назад последний. Маленькая имени, всемогущая от всех маленький запятых рыбными решила алфавит подзаголовок до которой страна образ переулка раз lorem не он над? Вскоре ipsum большой снова ее свой даль которое о, заголовок даже единственное власти от всех толку эта жизни пор жаренные составитель меня повстречался? Ipsum, деревни? На берегу подзаголовок страна запятых его, меня правилами буквоград продолжил океана вопроса маленькая.
+          </div>
+          <div class="container px-[1.5rem]">
+            @@include('components/_form_reg.html', {})
+          </div>
+
+          
+        <div class="container px-[1.5rem] mb-[16px] py-3 md:p-4">
+          @@include('components/_breadcrumbs_fb.html',{})
+          <!-- @@include('components/_drawer_fb.html',{}) -->
+        </div>
+        
+        <div class="container px-[1.5rem] mb-[16px] py-3 md:p-4">
+          @@include('components/_review_fb.html',{})
+        </div>
+        
+
+        <div class="page__container flex-col p-3 md:p-4">
+          <!-- @@include('components/_review_fb.html',{})
+          @@include('components/_paginations_fb.html',{}) -->
+        </div>
+
+        <!-- @@include('components/_carousel.html', {}) --> 
+
+        <div class="page__container flex-wrap justify-around gap-8 p-6">
+          @@include('components/_block_adv-v.html', {})
+          @@include('components/_block_adv-v_konkurs.html', {})
+          @@include('components/_form-recall.html', {})
+        </div>
+
+        <div>
+          <hr
+          class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-blue-700 to-transparent opacity-25 dark:opacity-100" />
+        </div>
+
+        @@include('components/test/_card-overlap_te.html', {})
+      
+        @@include('components/material-tailwind/_select.html', {})
+        <div class="container">
+
+          @@include('components/codepen/_landing_page.html', {})
+        </div>
+
+    @@include('layout/_footer.htm', {})
+    @@include('components/ui/_toTopButton.htm', {})
+  </div>
+
+@@include('layout/_js.htm', {})
+
+  <!-- @@include('components/_yandex_metrika.html', {}) -->
+</body>
+
+</html>

@@ -1,0 +1,571 @@
+@import 'fonts';
+@import 'search';
+@import 'ui';
+@import 'evo-corp/header';
+// @import 'tailwind'; 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+//  Functions
+@function toRem($size) {
+	@return calc($size / 16) + rem; 
+}
+
+
+$fontFamily: "Monserratcyr";
+// $fontFamily: "Raleway"
+// $fontFamily: "GTWalsheimProRegular"
+$fontSize: toRem(29); // toRem( размер фонта в пикселях)
+
+$minWidth: 320px;
+$maxWidth: 1920;
+$maxWidthContainer: 1170;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+// *** from freelancer-it https://www.youtube.com/watch?v=XbnAKjjlgc4 
+//  17:10 задаем брейкпоинты
+// .container {
+// 	max-width: 1200px;
+// 	margin: 0 auto;
+// 	padding: 0 15px;
+// }
+
+// @media (max-width:1200px) {
+// 	.container {
+// 		min-width: 970px;
+// 	}
+// }
+
+// @media (max-width:992px) {
+// 	.container {
+// 		min-width: 750px;
+// 	}
+// }
+
+// @media (max-width:762px) {
+// 	.container {
+// 		min-width: none;
+// 	}
+// }
+// *** end from freelancer-it  https://www.youtube.com/watch?v=XbnAKjjlgc4 
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	color: #000;
+	// background-color: #0ff;
+	font-size: 14px;
+	// ###  я поставил, посмотреть, как правильно в первой части, гд шапка делается
+	font-family: $fontFamily;
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	a {
+		text-decoration: none;
+	}
+	// ### END  я поставил, посмотреть, как правильно в первой части, гд шапка делается
+	&._lock {
+		overflow: hidden;
+	}
+}
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+// ОСНОВНАЯ СЕТКА ********************************************************************
+._container {
+	max-width: $maxWidthContainer + px;
+	margin: 0 auto;
+	@media (max-width: $md1+px) {
+		max-width: 970px;
+	}
+	@media (max-width: $md2+px) {
+		max-width: 750px;
+	}
+	@media (max-width: $md3+px) {
+		max-width: none;
+		padding: 0 10px;
+	}
+}
+
+// ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ
+// @import "forms";
+@import "ui";
+
+// ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ ГОТОВЫХ СТРАНИЦ И ЭЛЕМЕНТОВ
+// @import "datepicker";
+// @import "popup";
+// @import "header";
+// @import "footer";
+
+// ОСНОВНОЙ БЛОК **********************************************************************
+.page {
+	padding: 160px 0 0 0;
+	flex: 1 1 auto;
+	&__container {
+		display: flex;
+	}
+	&__side {
+		flex: 0 0 260px;
+	}
+	&__menu { }
+	&__content {
+		flex: 1 1 auto;
+		padding: 0 0 0 30px;
+	}
+}
+._container { }
+.menu-page {
+	position: relative;
+	background-color: rgba(65, 21, 223, .9);
+		// background: url("../path_fone_image") top no-repeat; если нужна воновая картинка	
+	
+	&__header { 
+		padding: 20px;
+		display: flex;
+		align-items: center;
+	}
+	&__title {
+		color: #fff;
+		font-family: "Raleway";
+		line-height: calc(40 / 30 * 100%); // формула для уучета изменения размера шрифта тспольземого
+		font-size: 30px;
+		text-transform: uppercase;
+		letter-spacing: .75px;
+	}
+	&__burger {
+		flex: 0 0 36px;
+		// background-color: #666; // Ниже сам бургер!!
+		width: 36px;
+		height: 36px;
+		position: relative;
+		cursor: pointer;
+		z-index: 5;		
+		span {
+			transition: all .3s ease 0s;
+			top: calc(50% - 1px);
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 3px;
+			background-color: #fff;
+			&:first-child {
+				top: 0px;
+			}
+			&:last-child {
+				top: auto;
+				bottom: 0px;
+			}
+		}
+		&._active {
+			span {
+				transform: scale(0);
+				&:first-child {
+					transform: rotate(-45deg);
+					top: calc(50% - 1.5px);
+				}
+				&:last-child {
+					transform: rotate(45deg);
+					bottom: calc(50% - 1.5px);
+				}
+			}
+		}
+	}
+	&__lines {
+		height: 26px;
+		position: relative;
+	}
+	&__body {
+		display: none;
+		&._active {
+			display: block;
+		}
+	}
+	&__list {
+		> li {
+			border-bottom: 1px solid #1aa7b9;
+		}
+	}
+	&__parent {
+		.menu-page__link {
+			&::after {
+				content: ">>";
+				position: absolute;
+				right: 20px;
+				top: 50%;
+				width: 14px;
+				height: 14px;
+				transform: translate(0px, -50%);
+			}
+		}
+		&._active {
+			.submenu-page__item {
+				transform: translate(0%, 0px);
+				z-index: 2;
+			}
+			.menu-page__link {
+				background-color: #10c603;
+			}
+		}
+	}
+	&__link {
+		letter-spacing: 0.3px;
+		font-weight: 300;
+		font-size: 12px;
+		color: #fff;
+		display: block;
+		padding: 12px 20px;
+		position: relative;
+		@media (min-width: $md2 + px) {
+			&:hover {
+				background-color: #10c6d3;
+			}
+		}
+		// &_parent {
+		// 	&::after {
+		// 		content: ">>";
+		// 		position: absolute;
+		// 		right: 20px;
+		// 		top: 50%;
+		// 		width: 14px;
+		// 		height: 14px;
+		// 		transform: translate(0px, -50%);
+		// 	}
+		// } 
+	
+	}
+	&__submenu {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 100%; // origin
+		height: 100%;
+		overflow: hidden;
+	}
+}
+
+.submenu-page {
+	// position: absolute;
+	// width: 100%;
+	// top: 0;
+	// left: 0;
+	// height: 100%;
+	&__item {
+		position: absolute;
+		border: 1px solid #098494;
+		background-color: #fff;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0%;
+		transform: translate(-100%, 0px);
+		transition:  .9s;
+	}
+	&__menu {
+		padding: 0;
+		li {}
+	}
+	&__link {
+		color: #1ab9ce;
+		font-size: 12px;
+		font-weight: 300;
+		display: block;
+		letter-spacing: 0.3px;
+		padding: 10px 40px;
+		@media (min-width: $md3 + px) {
+			&:hover {
+				background-color: #71c7d3;
+				color: #fff;
+			}
+		}
+	}
+	&__product {
+		padding: 15px 0;
+	}
+}
+
+.item-product {
+	padding: 15px;
+	position: relative;
+	&__labels {
+		position: absolute;
+		left: 15px;
+		top: 15px;
+	}
+	&__label {
+		font-weight: 900;
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 5px;
+		margin: 0 0 10px 0;
+		padding: 0 15px;
+		height: 21px;
+		background-color: #fd8424;
+	}
+	&__image {
+		height: 195px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px 0;
+		border: 1px solid #000; // del leter
+		img {
+			max-width: 100%;
+			max-height: 175px;
+		}
+	}
+	&__body {
+		padding: 0 10px;
+	}
+	&__title {
+		color: #36940f;
+		font-size: 16px;
+		font-weight: 300;
+		line-height: 18px;
+		display: inline-block;
+		margin: 0 0 10px 0;
+	}
+	&__footer {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__old-price {
+		flex: 1 1 100%;
+		text-align: right;
+		color: #999;
+		font-size: 18px;
+		font-weight: 300;
+		text-decoration: line-through;
+		&:after {
+			font-size: 14px;
+		}
+	}
+	&__bottom { } // del
+	&__add {
+		width: 40px;
+		height: 40px;
+		background: url(../img/icons/cart128.png) 0 0 no-repeat;
+		background-size: cover;
+	}
+	&__price {
+		color: #333;
+		font-size: 24px;
+		font-weight: 900;
+		&::after {
+			font-size: 18px;
+		}
+	}
+}
+
+// end ОСНОВНОЙ БЛОК **********************************************************************
+
+// Tailwid tests
+
+.header {
+	@apply text-base font-medium rounded-lg p-3 bg-sky-500;
+}
+.menu-item {
+	@apply block py-2 pr-4 pl-3 uppercase text-gray-700 font-semibold text-[12px] border-b border-gray-100 hover:bg-gray-50 hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:md:hover:bg-transparent dark:border-gray-700;
+	}
+
+.block_text-img {
+	@apply flex flex-col sm:flex-row justify-around items-center p-8 gap-4
+}
+
+.item_text {
+	@apply flex flex-col p-4 basis-full bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700
+}
+
+.item_img {
+	@apply relative max-w-full basis-full self-center
+}
+
+.block_text-img h2 {
+	@apply  mb-4 text-4xl font-[700] tracking-tight text-gray-900 dark:text-white
+}
+
+.block_text-img ul {
+	// @apply my-2
+}
+.block_text-img ul li {
+	@apply flex space-x-3 pb-2 my-5
+}
+.block_text-img ul.price li {
+	@apply flex space-x-3 pb-2 my-1
+}
+.block_text-img ul li i {
+	@apply text-blue-700 leading-[1.5em]
+}
+.block_text-img ul li span {
+	@apply text-base font-normal leading-[1.5em] text-gray-500
+}
+
+.block_text-img button {
+	@apply text-white bg-slate-700 leading-8 hover:text-dolphinyellow hover:text-[130%] focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-1/2 text-center self-center
+}
+
+ul.absolute li {
+	background-color: #ddd;
+	z-index: 100;
+}
+
+footer h3 {
+	@apply mb-6 text-xl font-semibold text-gray-100 uppercase dark:text-white
+}
+
+footer ul {
+	@apply text-[16px] text-gray-200 dark:text-gray-400;
+}
+
+.highlight {
+	position: relative;
+	display: inline-block;
+	z-index: 10;
+}
+.highlight:after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    background-color: #ffdc39;
+    width: 100%;
+    height: 0.5em;
+    z-index: -1;
+}
+	
+// ********* test 
+.raleway {
+	font-family: Raleway;
+}
+
+.GTWalsheimProRegular {
+	font-family: GTWalsheimProRegular;
+}
+
+.testfont {
+	font-family: Monserratcyr;
+}
+
+// Адаптивный фонт
+$maxWidth: 1280;
+@mixin adaptive-font($pcSize, $mobSize){
+	$addSize: $pcSize - $mobSize; // 38px - 14px = 24px
+	$addMobSize: $addSize + $addSize * 0.7;
+	@media(max-width: 767px){
+		font-size: calc(#{$mobSize + px} + #{$addMobSize}	* ((100vw - 320px) / #{$maxWidth}));
+		// font-size: calc(14px + 24px * 1.7	* ((100vw - 320px) / 1280px));
+	}
+	@media(min-width: 767px){
+		font-size: calc(#{$mobSize + px} + #{$addSize}	* (100vw / #{$maxWidth}));
+	}
+}
+.text-responsive {
+	// font-size: calc(19px + 19 * 1.7	* ((100vw - 320px) / 1280));
+	@include adaptive-font(36, 18);
+}
+
+
+// ****** tieline from tw-elements
+.timeline-1 {
+  border-left: 3px solid #b565a7;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  background: rgba(177, 99, 163, 0.09);
+  margin: 0 auto;
+  position: relative;
+  padding: 50px;
+  list-style: none;
+  text-align: left;
+  max-width: 40%;
+}
+
+@media (max-width: 767px) {
+  .timeline-1 {
+    max-width: 98%;
+    padding: 25px;
+  }
+}
+
+.timeline-1 .event {
+  border-bottom: 1px dashed #000;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .timeline-1 .event {
+    padding-top: 30px;
+  }
+}
+
+.timeline-1 .event:last-of-type {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: none;
+}
+
+.timeline-1 .event:before,
+.timeline-1 .event:after {
+  position: absolute;
+  display: block;
+  top: 0;
+}
+
+.timeline-1 .event:before {
+  left: -207px;
+  content: attr(data-date);
+  text-align: right;
+  font-weight: 100;
+  font-size: 0.9em;
+  min-width: 120px;
+}
+
+@media (max-width: 767px) {
+  .timeline-1 .event:before {
+    left: 0px;
+    text-align: left;
+  }
+}
+
+.timeline-1 .event:after {
+  -webkit-box-shadow: 0 0 0 3px #b565a7;
+  box-shadow: 0 0 0 3px #b565a7;
+  left: -55.8px;
+  background: #fff;
+  border-radius: 50%;
+  height: 9px;
+  width: 9px;
+  content: "";
+  top: 5px;
+}
+
+@media (max-width: 767px) {
+  .timeline-1 .event:after {
+    left: -31.8px;
+  }
+}

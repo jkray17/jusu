@@ -1,0 +1,216 @@
+@import  'vars';
+
+// ГОТОВЫЕ КЛАССЫ
+.rub:after {
+	content: " \20BD";
+	// content: "₽";
+}
+.euro:after {
+	content: "\20AC";
+	// content: "€";
+}
+.checkmark:after {
+	// content: "\2713";
+	content: "✓";
+}
+
+// <INPUT> (inp+tab)
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea {
+	appearance: none;
+	border: none;
+	width: 100%;
+	// background: #cdf;
+}
+.input {
+	border-radius: 0;
+	width: 100%;
+	display: block;
+	padding: 20px;
+	&._focus {}
+	&._error {}
+}
+textarea.input {
+	resize: none;
+	padding: 0;
+}
+
+// </INPUT>
+
+//  Buttons +++++++++++++++++++++++++++++
+
+// Перенести в UI.css
+.btn {
+	display: inline-flex;
+	padding: toRem(8);
+	min-height: toRem(64);
+	align-items: center;
+	justify-content: center;
+	border-radius: toRem(10);
+	background-color: $bg-secondary;
+	color: $inverse;
+	font-size: toRem(18);
+	font-weight: 700;
+	transition: all .3s;
+	line-height: 133.33333%; // 24/18
+  text-align: center;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: $bg-secondary;
+		}
+	}
+	&--primary {
+		background-color: $primary;
+	}
+	&--icon {
+		span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding-left: toRem(16);
+			gap: toRem(16);
+			&::after { // before -иконка слева, after - справа
+				content: '';
+				// background: #fff url("phone.svg") center no-repeat;
+				background: #ff0 url("../img/jusu/logo.gif") center no-repeat;
+				background-size: contain;
+				flex: 0 0 toRem(48);
+				width: toRem(48);
+				height: toRem(48);
+				border-radius: 50%;
+			}
+		}
+	}
+	&--fw {
+		width: 100%;
+	}
+}
+
+// Button id="toTop
+#toTop {
+	position: fixed;
+	bottom: toRem(20);
+	right: toRem(20);
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: toRem(80);
+	height: toRem(80);
+	background-color: $bg-primary;
+	border-radius: 50%;
+	border: 1px solid $primary;
+	opacity: 50%;
+	transition: all .3s;
+	&:hover {
+		opacity: 100%;
+	}
+}
+
+// <BURGER-FLIP> ******************
+// <div class="menu-btn-flip">
+//   <div class="front">
+//     <div class="menu-btn__burger-close"></div>
+//   </div>
+//   <div class="back">
+//     <div class="menu-btn__burger-open"></div>
+//   </div>
+// </div>
+// <div class="menu-btn-flip">
+//    <div class="back">
+//     <div class="menu-btn__burger-open"></div>
+//   </div>
+// </div>
+// <script>
+// const menuBtnFlip = document.querySelector('.menu-btn-flip');
+// let menuOpenFlip = false;
+// menuBtnFlip.addEventListener('click', () => {
+//   if(!menuOpenFlip) {
+//     menuBtnFlip.classList.add('open');
+//     menuOpenFlip = true;
+//   } else {
+//     menuBtnFlip.classList.remove('open');
+//     menuOpenFlip = false;
+//   }
+// });
+// // </script>
+// .menu-btn-flip {
+//   position: relative;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 80px;
+//   height: 80px;
+//   cursor: pointer;
+//   transition: all .5s ease-in-out;
+// }
+
+// .menu-btn__burger-close, .menu-btn__burger-open {
+//   width: 36px;
+//   height: 3px;
+//   background: #fff;
+//   border-radius: 5px;
+//   box-shadow: 0 2px 5px rgba(255,101,47,.2);
+//   transition: all .5s ease-in-out;
+// }
+// .menu-btn__burger-close::before,
+// .menu-btn__burger-close::after, .menu-btn__burger-open::before,
+// .menu-btn__burger-open::after {
+//   content: '';
+//   position: absolute;
+//   width: 36px;
+//   height: 3px;
+//   background: #fff;
+//   border-radius: 5px;
+//   box-shadow: 0 2px 5px rgba(255,101,47,.2);
+//   transition: all .5s ease-in-out;
+// }
+// .menu-btn__burger-close::before, .menu-btn__burger-open::before {
+//   transform: translateY(-12px);
+// }
+// .menu-btn__burger-close::after, .menu-btn__burger-open::after {
+//   transform: translateY(12px);
+// }
+
+// .menu-btn__burger-open {
+//   transform: translateX(-50px);
+//   background: transparent;
+//   box-shadow: none;
+// }
+// .menu-btn__burger-open::before {
+//   transform: rotate(45deg) translate(35px, -35px);
+// }
+// .menu-btn__burger-open::after {
+//   transform: rotate(-45deg) translate(35px, 35px);
+// }
+
+// 	/* animation */
+// .front, .back {
+//   backface-visibility: hidden;
+//   position: absolute; 
+// 	width: 100%; 
+// 	height: 100%; 
+// 	left: 0; 
+// 	top: 0; 
+// 	display: flex; 
+// 	justify-content: center; 
+// 	align-items: center; 
+// 	transition: 1s; 
+// }
+// /* меняем X Y rotate - разные эффекты */
+// .back {
+// /*   transform: rotateX(180deg);  */
+//   transform: rotateY(180deg); 
+// }
+
+// .menu-btn-flip._active .back {
+// /*   transform: rotateX(360deg); */
+//   transform: rotateY(360deg);
+// }
+// .menu-btn-flip._active .front {
+//   transform: rotateX(180deg);
+// /*   transform: rotateY(180deg); */
+// }
+// </GAMBURGER-FLIP>  ***********************

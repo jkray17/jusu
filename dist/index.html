@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+  <head>
+	<meta charset="utf-8" />
+	<title>Стартовая страница</title>
+	<!--[if IE
+		]><meta http-equiv="X-UA-Compatible" content="IE = edge"
+	/><![endif]-->
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="keywords" content="" />
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/theme/img/jusu/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/theme/img/jusu/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/theme/img/jusu/favicon/favicon-16x16.png">
+	<!-- <link rel="manifest" href="/theme/img/jusu/favicon/site.webmanifest"> -->
+
+	<link rel="stylesheet" type="text/css" href="/theme/css/awesomeall.min.css" />
+	<link rel="stylesheet" type="text/css" href="/theme/css/style.min.css" />
+	<link rel="stylesheet" type="text/css" href="/theme/css/swiper-bundle.min.css" />
+	<!-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" /> -->
+
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="SKYPE_TOOLBAR" content ="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+ 
+	
+	<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+rel="stylesheet" />
+<!-- <link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" /> -->
+ 
+
+</head>
+
+  <body class="body__column">
+    <!-- Поправить потом body -->
+
+     <header class="header" role="banner">
+	<div class="header__container">
+		<div class="header__logo">
+			<a href="#">
+				<img src="/theme/img/jusu/logo.gif" alt="Logo" />
+			</a>
+		</div>
+		<div class="header__menu-body menu">
+			<nav class="menu__body">
+				<ul class="menu__list has-submenu">
+					<li class="menu__item"><a href="#" class="menu__link">Главная</a></li>
+					<li class="menu__item has-submenu">
+						<a href="#" class="menu__link">Услуги</a>
+						<ul class="menu__sub-list submenu">
+							<li class="menu__sub-item"><a href="#" class="menu__sub-link">Бухгалтерский учет</a></li>
+							<li class="menu__sub-item has-submenu"><a href="#" class="menu__sub-link">Динамический логический учет long item subitem</a>
+								<ul class="menu__sub-list submenu">
+									<li class="menu__sub-item"><a href="#" class="menu__sub-link">Бухгалтерский учет</a></li>
+									<li class="menu__sub-item"><a href="#" class="menu__sub-link">Динамический логический учет long item subitem</a></li>
+									<li class="menu__sub-item"><a href="#" class="menu__sub-link">Кассовый учет</a></li>
+									<li class="menu__sub-item"><a href="#" class="menu__sub-link">Детективная деятельность</a></li>
+								</ul>
+							</li>
+							<li class="menu__sub-item"><a href="#" class="menu__sub-link">Кассовый учет</a></li>
+							<li class="menu__sub-item"><a href="#" class="menu__sub-link">Детективная деятельность</a></li>
+						</ul>
+					</li>
+					<li class="menu__item"><a href="#" class="menu__link">Блог</a></li>
+					<li class="menu__item"><a href="#" class="menu__link">Контакты</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="header__menu-icon menu__icon icon-menu">
+			<div class="menu-btn-flip">
+	<div class="front">
+		<div class="menu-btn__burger-close"></div>
+	</div>
+	<div class="back">
+		<div class="menu-btn__burger-open"></div>
+	</div>
+</div>
+
+		</div>
+    <div class="header__dark_mode">
+      <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700  rounded-lg text-sm p-2.5">
+	<svg id="theme-toggle-dark-icon" class="hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+	<svg id="theme-toggle-light-icon" class="hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+</button>
+    </div>
+    <div class="header__lang">
+      <div class="custom-select">
+	<div class="select-box">
+			<span class="selected-option">RU</span>
+			<i class="">
+				<svg class="ml-1 w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+				</svg>
+			</i>
+	</div>
+	<ul class="options">
+			<li data-value="ru">RU</li>
+			<li data-value="lv">LV</li>
+	</ul>
+</div>
+    </div>
+	</div>
+</header>
+
+<div style="padding: 150px 20% 0 20% ;">
+	<p>
+		Таким образом, обязанность человека, изучающего писания ученых, если поиск истины - это его цель, заключается в том, чтобы сделать себя врагом всего того, что он читает, и, применив свой ум для понимания основ и ограничений сущности читаемого, напасть на него со всех сторон. Он также должен сомневаться в своей способности выполнения критического анализа, так что он может впасть в предубеждение или самооправдание" 
+Ибн аль-Хайсам
+	</p>
+	Here's the HTML representation of the table:
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+<!-- 
+		<table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Event</th>
+                <th>Buy-in</th>
+                <th>Entries</th>
+                <th>Prize Pool</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Sun 26 May</td>
+                <td>21:05</td>
+                <td>OSS #5 Mystery Bounty - $100,000 GTD [Day2]</td>
+                <td>$2.50</td>
+                <td>41176</td>
+                <td>$100,000</td>
+                <td>Finished</td>
+            </tr>
+            <tr>
+                <td>Fri 31 May</td>
+                <td>17:15</td>
+                <td>PKO - $1,000 GTD</td>
+                <td>$2.50</td>
+                <td>438</td>
+                <td>$1,000</td>
+                <td>Finished</td>
+            </tr>
+            <tr>
+                <td>Fri 31 May</td>
+                <td>17:15</td>
+                <td>$15 GTD Freezeout</td>
+                <td>$0.11</td>
+                <td>161</td>
+                <td>$16.10</td>
+                <td>Finished</td>
+            </tr>
+            <tr>
+                <td>Fri 31 May</td>
+                <td>17:45</td>
+                <td>BIG10 - $500 GTD</td>
+                <td>$1.10</td>
+                <td>406</td>
+                <td>$500</td>
+                <td>Finished</td>
+            </tr>
+            <tr>
+                <td>Fri 31 May</td>
+                <td>18:30</td>
+                <td>PKO Turbo - $50 GTD PLO8</td>
+                <td>$0.55</td>
+                <td>141</td>
+                <td>$70.50</td>
+                <td>Finished</td>
+            </tr>
+            <tr>
+                <td>Fri 31 May</td>
+                <td>19:00</td>
+                <td>Super Bounty FT Pay - $250 GTD</td>
+                <td>$1.10</td>
+                <td>255</td>
+                <td>$255</td>
+                <td>Finished</td>
+            </tr>
+            <tr>
+                <td>Fri 31 May</td>
+                <td>19:30</td>
+                <td>Super Bounty FT Pay - $30 GTD</td>
+                <td>$0.11</td>
+                <td>458</td>
+                <td>$30.50</td>
+                <td>Finished</td>
+            </tr>
+            <tr>
+                <td>Fri 31 May</td>
+                <td>20:05</td>
+                <td>BIG10 - $2,000 GTD</td>
+                <td>$2.50</td>
+                <td>839</td>
+                <td>$2,000</td>
+                <td>Finished</td>
+            </tr>
+            <tr>
+                <td>Fri 31 May</td>
+                <td>20:45</td>
+                <td>Turbo - $300 GTD 5Card PLO8</td>
+                <td>$3.30</td>
+                <td>119</td>
+                <td>$357</td>
+                <td>Finished</td>
+            </tr>
+            <tr>
+                <td>Fri 31 May</td>
+                <td>20:45</td>
+                <td>PKO Turbo - $400 GTD</td>
+                <td>$1.65</td>
+                <td>267</td>
+                <td>$400.50</td>
+                <td>Finished</td>
+            </tr>
+            <tr>
+                <td>Fri 31 May</td>
+                <td>21:15</td>
+                <td>$1,250 GTD</td>
+                <td>$4.40</td>
+                <td>237</td>
+                <td>$1,250</td>
+                <td>Finished</td>
+            </tr>
+            <tr>
+                <td>Fri 31 May</td>
+                <td>21:15</td>
+                <td>$100 GTD</td>
+                <td>$0.55</td>
+                <td>196</td>
+                <td>$100</td>
+                <td>Finished</td>
+            </tr>
+            <tr>
+                <td>Fri 31 May</td>
+                <td>21:30</td>
+                <td>$125 GTD Freezeout</td>
+                <td>$1.10</td>
+                <td>90</td>
+                <td>$125</td>
+                <td>Finished</td>
+            </tr>
+        </tbody>
+    </table> -->
+</div>
+     
+
+     <nav class="breadcrumbs">
+	<div class="breadcrumbs__container">
+		<ul>
+			<li><a href="#" class="icon-home3">Главная</a></li>
+			<li><a href="#">Услуги</a></li>
+			<li><a href="#">Бухгалтерский учет</a></li>
+		</ul>
+	</div>
+</nav>
+     
+     
+     <main class="page">
+
+      <div style="background-color: aqua;">
+        
+      </div>
+
+      
+      
+      <section class="faq">
+	<div data-tabs class="faq__container">
+		<div class="faq__title title">
+			<div class="title__label">Вопросы и ответы</div>
+			<h2 class="title__value">Ответы на часто задаваемые вопросы</h2>
+			<div class="title__text">
+				<p>Остались вопросы? <a href="#">Получите ответ здесь</a></p>
+			</div>
+		</div>
+		<div class="faq__spollers spollers-faq">
+			<details class="spollers-faq__item">
+				<summary class="spollers-faq__title">Какие сроки обработки заявки?</summary>
+				<div class="spollers-faq__body">Ответ на вопрос
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae hic veritatis cumque fuga.
+				</div>
+			</details>
+			<details class="spollers-faq__item">
+				<summary class="spollers-faq__title">Какие сроки обработки заявки?</summary>
+				<div class="spollers-faq__body">Ответ на вопрос
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae hic veritatis cumque fuga.
+				</div>
+			</details>
+			<details class="spollers-faq__item">
+				<summary class="spollers-faq__title">Какие сроки обработки заявки?</summary>
+				<div class="spollers-faq__body">Ответ на вопрос
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae hic veritatis cumque fuga.
+				</div>
+			</details>
+			<details class="spollers-faq__item">
+				<summary class="spollers-faq__title">Какие сроки обработки заявки?</summary>
+				<div class="spollers-faq__body">Ответ на вопрос
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae hic veritatis cumque fuga.
+				</div>
+			</details>
+			<details class="spollers-faq__item">
+				<summary class="spollers-faq__title">Какие сроки обработки заявки?</summary>
+				<div class="spollers-faq__body">Ответ на вопрос
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae hic veritatis cumque fuga.
+				</div>
+			</details>
+			<details class="spollers-faq__item">
+				<summary class="spollers-faq__title">Какие сроки обработки заявки?</summary>
+				<div class="spollers-faq__body">Ответ на вопрос
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae hic veritatis cumque fuga.
+				</div>
+			</details>
+			<details class="spollers-faq__item">
+				<summary class="spollers-faq__title">Какие сроки обработки заявки?</summary>
+				<div class="spollers-faq__body">Ответ на вопрос
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae hic veritatis cumque fuga.
+				</div>
+			</details>
+			<details class="spollers-faq__item">
+				<summary class="spollers-faq__title">Какие сроки обработки заявки?</summary>
+				<div class="spollers-faq__body">Ответ на вопрос
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae hic veritatis cumque fuga.
+				</div>
+			</details>
+		</div>
+	</div>
+</section>
+
+      
+      <section class="testimonials">
+	<div data-tabs class="testimonials__container">
+		<div class="testimonials__title title">
+			<div class="title__label">Отзывы</div>
+			<h2 class="title__value">Наши клиенты</h2>
+		</div>
+		<div class="testimonials__items">
+			<article class="testimonials__item item-testimonials">
+				<div class="item-testimonials__avatar">
+					<img src="theme\img\jusu\avatar\avatar-1.jpg" alt="">
+				</div>
+				<div class="item-testimonials__text text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Рукописи толку буквенных если по всей там жизни языком запятых, над, диких вскоре текстов рекламных дороге!
+				</div>
+				<div class="item-testimonials__name">Иванов Иван Иванович</div>
+				<div class="item-testimonials__profession date">Генеральный директор</div>
+			</article>
+			<article class="testimonials__item item-testimonials">
+				<div class="item-testimonials__avatar">
+					<img src="theme\img\jusu\avatar\avatar-2.jpg" alt="">
+				</div>
+				<div class="item-testimonials__text text">Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты.">
+				</div>
+				<div class="item-testimonials__name">Тёма Лебедева</div>
+				<div class="item-testimonials__profession date">Дизайнер-теоретик</div>
+			</article>
+			<article class="testimonials__item item-testimonials">
+				<div class="item-testimonials__avatar">
+					<img src="theme\img\jusu\avatar\avatar-3.jpg" alt="">
+				</div>
+				<div class="item-testimonials__text text">
+					Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты. Злых прямо рекламных над вопрос? Злых скатился текста даже семантика что текст пояс, эта, переписывается заголовок всемогущая языкового рот осталось путь сбить, которой повстречался составитель своих снова семь?
+				</div>
+				<div class="item-testimonials__name">Иванова Марья Петровна</div>
+				<div class="item-testimonials__profession date">Промушленное СЕО</div>
+			</article>
+		</div>
+	</div>
+</section>
+
+      
+      <section class="blog">
+	<div data-tabs class="blog__container">
+		<div class="blog__title title">
+			<div class="title__label">Наши статьи</div>
+			<h2 class="title__value">Блог компании</h2>
+		</div>
+		<div class="blog__items">
+			<article class="blog__item item-blog">
+				<a href="" class="item-blog__img">
+					<img src="theme\img\jusu\content\pexels-women.webp" alt="">
+					<!-- <img src="theme\img\jusu\content\baba-ferz.png" alt=""> -->
+				</a>
+				<div class="item-blog__body">
+					<h4 class="item-blog__title">
+						<a href="" class="item-blog__link-title">Особенности семейного права. Примеры и нюансыю</a>
+					</h4>
+					<div class="item-blog__date date">10.10.2023</div>
+					<div class="item-blog__text">Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Что, приставка! Послушавшись маленький встретил большого путь заманивший рукописи, дорогу над? Речью то назад, гор точках переписали которой пунктуация свое языком, пор использовало маленькая над буквенных всеми!
+					</div>
+					<a href="" class="item-blog__link">Читать статью</a>
+				</div>
+			</article>
+			<article class="blog__item item-blog">
+				<a href="" class="item-blog__img">
+					<img src="theme\img\jusu\content\baba-ferz.png" alt="">
+				</a>
+				<div class="item-blog__body">
+					<h4 class="item-blog__title">
+						<a href="" class="item-blog__link-title">Особенности семейного права</a>
+					</h4>
+					<div class="item-blog__date date">10.10.2023</div>
+					<div class="item-blog__text">Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Журчит, снова.
+					</div>
+					<a href="" class="item-blog__link">Читать статью</a>
+				</div>
+			</article>
+			<article class="blog__item item-blog">
+				<a href="" class="item-blog__img">
+					<img src="theme\img\jusu\content\pexels-women.webp" alt="">
+					<!-- <img src="theme\img\jusu\content\baba-ferz.png" alt=""> -->
+				</a>
+				<div class="item-blog__body">
+					<h4 class="item-blog__title">
+						<a href="" class="item-blog__link-title">Особенности семейного права</a>
+					</h4>
+					<div class="item-blog__date date">10.10.2023</div>
+					<div class="item-blog__text">Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Журчит, снова.
+					</div>
+					<a href="" class="item-blog__link">Читать статью</a>
+				</div>
+			</article>
+			<article class="blog__item item-blog">
+				<a href="" class="item-blog__img">
+					<img src="theme\img\jusu\content\baba-ferz.png" alt="">
+				</a>
+				<div class="item-blog__body">
+					<h4 class="item-blog__title">
+						<a href="" class="item-blog__link-title">Особенности семейного права</a>
+					</h4>
+					<div class="item-blog__date date">10.10.2023</div>
+					<div class="item-blog__text">Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Журчит, снова.
+					</div>
+					<a href="" class="item-blog__link">Читать статью</a>
+				</div>
+			</article>
+			<article class="blog__item item-blog">
+				<a href="" class="item-blog__img">
+					<img src="theme\img\jusu\content\pexels-women.webp" alt="">
+					<!-- <img src="theme\img\jusu\content\baba-ferz.png" alt=""> -->
+				</a>
+				<div class="item-blog__body">
+					<h4 class="item-blog__title">
+						<a href="" class="item-blog__link-title">Особенности семейного права</a>
+					</h4>
+					<div class="item-blog__date date">10.10.2023</div>
+					<div class="item-blog__text">Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Журчит, снова.
+					</div>
+					<a href="" class="item-blog__link">Читать статью</a>
+				</div>
+			</article>
+			<article class="blog__item item-blog">
+				<a href="" class="item-blog__img">
+					<img src="theme\img\jusu\content\baba-ferz.png" alt="">
+				</a>
+				<div class="item-blog__body">
+					<h4 class="item-blog__title">
+						<a href="" class="item-blog__link-title">Особенности семейного права</a>
+					</h4>
+					<div class="item-blog__date date">10.10.2023</div>
+					<div class="item-blog__text">Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Журчит, снова.
+					</div>
+					<a href="" class="item-blog__link">Читать статью</a>
+				</div>
+			</article>
+		</div>
+	</div>
+</section>
+
+      <section class="career">
+	<div data-tabs class="career__container">
+		<div class="career__title title">
+			<div class="title__label">Мои работы</div>
+			<h2 class="title__value">Шаги большого пути</h2>
+		</div>
+
+		<nav data-tabs-titles class="career__navigation navigation-career">
+			<button type="button" class="navigation-career__title _tab-active">Первая компания</button>
+			<button type="button" class="navigation-career__title">2 компания</button>
+			<button type="button" class="navigation-career__title">Юридическая компания</button>
+			<button type="button" class="navigation-career__title">2 компания</button>
+			<button type="button" class="navigation-career__title">Средиземноморская промкомпания</button>
+		</nav>
+
+		<div data-tabs-body class="career__content content-career">
+			<div class="content-career__body">
+				<div class="content-career__header">
+					<div class="content-career__title">
+						Главный бухгалтер в компании <a href="" class="content-career__link-title">Адидас</a>	
+					</div>
+					<div class="content-career__subtitle">пгт. Лос-Алабамос, Калифорния</div>
+					<div class="content-career__time">Ноябрь 2023 - круглосуточно</div>
+					<div class="content-career__categories">
+						<a href="" class="category-link">PHP</a>
+						<a href="" class="category-link">Право</a>
+					</div>
+				</div>
+				
+				<div class="content-career__main">
+					<ul class="content-career__list list-content-career">
+						<li class="list-content-career__item icon-minus">Начало работы</li>
+						<li class="list-content-career__item icon-minus">Второй день работы</li>
+						<li class="list-content-career__item icon-minus">Конец работы</li>
+						<li class="list-content-career__item icon-minus">Конец работы на самом деле</li>
+					</ul>
+					<p>
+						Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Образ напоивший это единственное заглавных составитель парадигматическая приставка над то агентство рекламных заманивший сбить всеми языком вопроса пустился речью меня маленький, семантика подзаголовок!
+					</p>
+					<p>
+						Свой там до не грустный вскоре букв буквоград текстов деревни она имени, языкового коварных переулка на берегу прямо это пор грамматики, рыбными речью пунктуация! Языкового послушавшись, его от всех великий маленькая на берегу букв маленький дорогу ручеек гор безопасную живет заглавных текст ты подпоясал пор продолжил они. Бросил, ручеек! Необходимыми собрал агентство запятой щеке все. Сих проектах вершину снова, рот строчка имеет жаренные гор одна подпоясал рыбного, текстами текста даже все лучше залетают мир пунктуация инициал но, составитель скатился имени они. Щеке диких журчит пояс она власти пор! Всеми не дороге повстречался продолжил. Заманивший рукописи моей коварный даже послушавшись точках ее меня дороге назад предупредила, безопасную своего продолжил он снова? Своего однажды великий предложения грамматики всеми речью обеспечивает последний безорфографичный большого имени?
+					</p>
+					<p>
+						Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Образ напоивший это единственное заглавных составитель парадигматическая приставка над то агентство рекламных заманивший сбить всеми языком вопроса пустился речью меня маленький, семантика подзаголовок!
+					</p>
+					<div>
+						Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Образ напоивший это единственное заглавных составитель парадигматическая приставка над то агентство рекламных заманивший сбить всеми языком вопроса пустился речью меня маленький, семантика подзаголовок!
+					</div>
+					<div>
+						Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Образ напоивший это единственное заглавных составитель парадигматическая приставка над то агентство рекламных заманивший сбить всеми языком вопроса пустился речью меня маленький, семантика подзаголовок!
+					</div>
+				</div>
+			</div>
+			<div class="content-career__body">
+				Содержимое второго таба
+			</div>
+			<div class="content-career__body">
+				Содержимое третьего таба
+				<div>
+						Свой там до не грустный вскоре букв буквоград текстов деревни она имени, языкового коварных переулка на берегу прямо это пор грамматики, рыбными речью пунктуация! Языкового послушавшись, его от всех великий маленькая на берегу букв маленький дорогу ручеек гор безопасную живет заглавных текст ты подпоясал пор продолжил они. Бросил, ручеек! Необходимыми собрал агентство запятой щеке все. Сих проектах вершину снова, рот строчка имеет жаренные гор одна подпоясал рыбного, текстами текста даже все лучше залетают мир пунктуация инициал но, составитель скатился имени они. Щеке диких журчит пояс она власти пор! Всеми не дороге повстречался продолжил. Заманивший рукописи моей коварный даже послушавшись точках ее меня дороге назад предупредила, безопасную своего продолжил он снова? Своего однажды великий предложения грамматики всеми речью обеспечивает последний безорфографичный большого имени?
+					</div>
+					<div>
+						Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Образ напоивший это единственное заглавных составитель парадигматическая приставка над то агентство рекламных заманивший сбить всеми языком вопроса пустился речью меня маленький, семантика подзаголовок!
+					</div>
+			</div>
+		</div>
+			
+	</div>
+</section>
+      
+      
+
+      <section class="heroadvance">
+	<div class="sec__container">
+		<div class="txtblock txtblock-imgr">
+			<div class="txtblock__header">
+				<h2 class="txtblock__title icon-home3"> Наши юристы по семейным делам и разводам</h2>
+			</div>
+
+			<div class="txtblock__body">
+				<div class="txtblock__text">
+					<h3 class="txtblock__subtitle">Отмеченные наградами семейные адвокаты</h3>
+					<p>Наши отмеченные наградами семейные юристы ставят интересы вашей семьи своим приоритетом номер один, даже после развода. Наши отмеченные наградами семейные юристы ставят интересы вашей семьи своим приоритетом номер один, даже после развода. У нас есть утренние встречи, на которых мы все обсуждаем наши файлы и придумываем решения всей командой. Мы не считаем, что разделение должно заканчиваться битвой, в которой один побеждает, а другой проигрывает. Вместо этого мы сосредотачиваемся на долгосрочных интересах наших клиентов, их детей и их финансов. Благодаря нашему инновационному подходу к праву мы завоевали множество наград.</p>
+					<p>Мы специализируемся на вопросах семейного права, включая сожительство, развод, алименты на детей и супругов, время воспитания детей, раздел активов и долгов и т. д. Мы также предоставляем услуги по иммиграционному праву и гражданским судебным разбирательствам.</p>
+
+					<h3 class="txtblock__subtitle">Семейное законодательство</h3>
+					<p>Наши адвокаты по семейным делам и бракоразводным процессам, специализирующиеся почти исключительно на семейном праве и его последних тенденциях, были признаны лучшими семейными адвокатами в Ванкувере на нескольких платформах.</p>
+					<p>Наши юристы имеют ненасытную жажду помочь нашим клиентам как можно лучше, и не знают ничего, кроме совершенства, когда дело касается представления интересов наших клиентов по семейному праву.						
+						Узнайте больше <a href="#">здесь:</a></p><br>
+					<ul>
+						<li class="icon-checkmark">Что мы делаем</li>
+						<li class="icon-checkmark">Что ожидать</li>
+						<li class="icon-checkmark">Карьера</li>
+						<li class="icon-checkmark">Награды и пресса</li>
+						<li class="icon-checkmark">Семейное право Канады</li>
+						<li class="icon-checkmark">Участие сообщества</li>
+						<li class="icon-checkmark">Победы в делах</li>
+					</ul>
+				</p>
+				</div>
+
+				<div class="txtblock__img">
+					<img src="theme/img/jusu/content/woman-zerk.webp" alt="" />
+					<p class="tagline tag-2">Люди  </br>важнее юристов.</p>
+				</div>
+			</div>
+			
+			<div class="txtblock__footer"></div>
+		</div>
+	</div>
+</section>
+
+      <section class="steps">
+	<div class="steps__container">
+		<div class="steps__img">
+			<img src="theme/img/jusu/content/man-i-palka_trp.png" alt="">
+		</div>
+		<div class="steps__content">
+			<div class="steps__block-header block-header">
+				<div class="block-header__title title">
+					<div class="title__label">Несколько шагов</div>
+					<h2 class="title__value">Как мы работаем</h2>
+				</div>
+			</div>
+			<ul class="steps__list list-steps">
+				<li class="list-steps__item">
+					<span class="list-steps__title">Позвоните нам</span>
+					<span class="list-steps__text">Свяжитесь с нами любым удобным для Вас способом в рабочее время.</span>
+				</li>
+				<li class="list-steps__item">
+					<span class="list-steps__title">Ждите ответа</span>
+					<span class="list-steps__text">Наши сотрудники свяжутся с Вами для выяснения деталей вашего дела в удобное для Вас время.</span>
+				</li>
+				<li class="list-steps__item">
+					<span class="list-steps__title">Обработка запроса</span>
+					<span class="list-steps__text">После утверждения задачи наши специалисты предоставят опитамальное решение Вашего вопроса в надлежащие сроки. </span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+      <section class="services">
+	<div class="services__container">
+		<div class="services__block-header block-header block-header--center">
+			<div class="block-header__title title">
+				<div class="title__label">Наши возможности</div>
+				<h2 class="title__value">Наши сервисы и услуги</h2>
+			</div>
+			<div class="block-header__text">
+				<p>Преимущества выбора «Jūsu tiesības» и что нас отличает</p>
+			</div>
+		</div>
+		<div class="services__items">
+			<article class="services__item item-service">
+				<div class="item-service__icon">
+					<img src="theme\img\jusu\content\benefits\icon1.png" alt="">
+				</div>
+				<h4 class="item-service__title">Семейное право</h4>
+				<div class="item-service__text">
+					<p>У нас более 50 лет опыта семейного права. У нас более 50 лет опыта семейного права.</p>
+			</article>
+			<article class="services__item item-service">
+				<div class="item-service__icon">
+					<img src="theme\img\jusu\content\benefits\icon2.png" alt="">
+				</div>
+				<h4 class="item-service__title">Все наши юристы сотрудничают и разрабатывают стратегию вместе</h4>
+				<div class="item-service__text">
+					<p>Все наши юристы сотрудничают и разрабатывают стратегию вместе</p>
+			</article>
+			<article class="services__item item-service">
+				<div class="item-service__icon">
+					<img src="theme\img\jusu\content\benefits\icon3.png" alt="">
+				</div>
+				<h4 class="item-service__title">Описана как мощная юридическая фирма по версии журнала Globe and Mail.</h4>
+				<div class="item-service__text">
+					<p>Описана как мощная юридическая фирма по версии журнала Globe and Mail.</p>
+			</article>
+			<article class="services__item item-service">
+				<div class="item-service__icon">
+					<img src="theme\img\jusu\content\benefits\icon4.png" alt="">
+				</div>
+				<h4 class="item-service__title">Признан лучшим адвокатом по разводам в Британской Колумбии.</h4>
+				<div class="item-service__text">
+					<p>Признан лучшим адвокатом по разводам в Британской Колумбии.</p>
+			</article>
+			<article class="services__item item-service">
+				<div class="item-service__icon">
+					<img src="theme\img\jusu\content\benefits\icon5.png" alt="">
+				</div>
+				<h4 class="item-service__title">Семейное право</h4>
+				<div class="item-service__text">
+					<p>У нас более 50 лет опыта семейного права. У нас более 50 лет опыта семейного права.</p>
+			</article>
+			<article class="services__item item-service">
+				<div class="item-service__icon">
+					<img src="theme\img\jusu\content\benefits\icon6.png" alt="">
+				</div>
+				<h4 class="item-service__title">Успех в нескольких новаторских делах по семейному праву</h4>
+				<div class="item-service__text">
+					<p>Успех в нескольких новаторских делах по семейному праву У нас более 50 лет опыта семейного права.</p>
+			</article>
+			<article class="services__item item-service">
+				<div class="item-service__icon">
+					<img src="theme\img\jusu\content\benefits\icon1.png" alt="">
+				</div>
+				<h4 class="item-service__title">Сложные вопросы</h4>
+				<div class="item-service__text">
+					<p>Особое внимание уделяется сложным вопросам семейного права, включая раздел крупных активов и похищение детей.</p>
+			</article>
+			<article class="services__item item-service item-service--blue">
+				<h4 class="item-service__title">Другие случаи</h4>
+				<div class="item-service__text">
+					<p>Если у пас есть вопросы по другим ситуациям.</p>
+				</div>
+				<a href="" class="item-service__button btn btn--primary btn--fw btn--min btn--icon"><span>Узнать больше</span></a>
+			</article>
+		</div>
+	</div>
+</section>
+    </main>
+
+    
+<footer class="footer" role="contentinfo">
+	<div class="footer__container">
+		<p class="footer__copyright">© 2023 Все права защищены</p>
+	</div>
+	
+</footer>
+
+    <button
+    type="button"
+    id="toTop"
+  >
+    <svg
+      class="w-10 h-10"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M5 10l7-7m0 0l7 7m-7-7v18"
+      ></path>
+    </svg>
+  </button>
+
+  
+
+<!-- <script src="static/js/main.js"></script> -->
+  <!-- <script defer src="/theme/js/flowbite.js"></script> -->
+  <script defer src="/theme/js/swiper-bundle.min.js"></script>
+  <script defer src="/theme/js/script.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script> -->
+  
+
+  <!-- <script
+    defer
+    src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"
+  ></script> -->
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+
+  
+</body>
+
+</html>

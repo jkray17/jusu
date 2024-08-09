@@ -1,0 +1,152 @@
+// *** vars ***
+$fontFamily: "Monserratcyr";
+// $fontFamily: "Raleway"
+// $fontFamily: "GTWalsheimProRegular"
+$baseFontSize: 16;
+$fontSize: toRem(16); // toRem( размер фонта в пикселях)
+
+// *** vars для адаптива ***
+$minWidth: 320; // мин ширина экрана ( !!! разобраться  сразмерностью)
+$maxWidth: 1920; // макс ширина экрана
+$maxWidthContainer: 1170; // макс ширина ограничительного контейнера, 0 - нет ограничения >>>> !!! разобраться с нулевым значением !!!!
+$containerPadding: 30; // отступ контейнера общий  обеих сторон 15+15
+$containerWidth: $maxWidthContainer + $containerPadding; // ширина срабатывания первого брейкпоинта
+// breakpoints ( !!!! перевести всё в em)
+$pc: $containerWidth; // ПК и планшеты в горизонтах
+$tablet: 991.98; // Планшеты и телефоны в горизонтах
+$mobile: 767.98; // Телефоны L
+$mobileSmall: 479.98; // Телефоны S
+
+// Тип адаптива:
+// 1 - отзывчивый ( у контейнера нет брейкпоинтов )
+// 2 - по брейкпоинтам (у контейнера есть брейкпоинты )
+$responsiveType: 1;
+
+//  Обнуление ***************************
+//  @import 'base/_reset';
+
+
+// Colors
+// основные цвета
+$mainColor: #222; // основной цвет текста
+// Палитры цветов (подключать из файла типа scss/_colors.scss)?
+// @import 'scso/base/lors';
+// -------------------------- подумать как дарк сдеоать   ????????
+$primary: #821D23; //#5a61a9; //  основной цвет сайта YLAW
+$secondary: #8F3918; // #29339bff; // по таблице цветов
+// $secondary: #007bff; // доп цвет сайта
+$accent: #007bff; // цвет заголовка, кнопки, ссылок
+$inverse: #fff; // цвет для контраста фона и текста
+
+$bg-primary: #f3f3f9;  // main color YLAW //#1ab9ce
+$bg-secondary: #098494;
+$bg-accent: #29339bff;
+$bg-inverse: #fefefe;
+
+$text-primary: #222; // цвет шрифта по умолчанию
+$text-secondary: #535457; // Зашоловки #007bff
+$text-accent: #8F3918; //#29339bff; // по осн цвету сайта
+$text-inverse: #fff;
+
+
+// ***  Functions *******************************
+	/* adaptiveValue неполноценный, надо где-то у фрилансера подсмотреть, уточнить, что параметр $keepSize делает? Пока предположение:
+	-0 - плавное изменение размеров;
+	-1 - измение Только если меньше контейнера 
+	-2 - измение Только если больше контейнера
+	*/
+	@mixin adaptiveValue($property, $startSize, $minSize, $keepSize: 0, $widthFrom: $containerWidth, $widthTo: $minWidth) {
+		$addSize: $startSize - $minSize;
+		@if $keepSize==1 {
+			// Только если меньше контейнера
+			#{$property}: $startSize + px;
+			@media (max-width: #{$maxWidthContainer + px}) {
+				// #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+				#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$widthTo + px}) / #{$maxWidthContainer - #{$widthTo}}));
+			}
+		} @else if $keepSize==2 {
+			// Только если больше контейнера
+			#{$property}: $startSize + px;
+			@media (min-width: #{$maxWidthContainer + px}) {
+				#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+			}
+		} @else {
+			// Всегда
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+		}
+	}
+	
+	@function toRem($size) {
+		@return calc($size / $baseFontSize) + rem; 
+	}
+	// разобраться с преобразованием ширины брейкпоинтов в em https://youtu.be/x91woHXCcyc?t=1528   
+	// @function toEm($size) {
+	// 	@return calc($size / $baseFontSize) + em; 
+	// }
+	
+	// Адаптивный фонт + пример использования
+	// $maxWidth: 1280;
+	@mixin adaptive-font($pcSize, $mobSize){
+		$addSize: $pcSize - $mobSize; // 38px - 14px = 24px
+		$addMobSize: $addSize + $addSize * 0.7;
+		@media(max-width: 767px){
+			font-size: calc(#{$mobSize + px} + #{$addMobSize}	* ((100vw - 320px) / #{$maxWidth}));
+			// font-size: calc(14px + 24px * 1.7	* ((100vw - 320px) / 1280px));
+		}
+		@media(min-width: 767px){
+			font-size: calc(#{$mobSize + px} + #{$addSize}	* (100vw / #{$maxWidth}));
+		}
+	}
+	.text-responsive {
+		// font-size: calc(19px + 19 * 1.7	* ((100vw - 320px) / 1280));
+		@include adaptive-font(36, 18);
+	}
+	
+	
+	
+	// Ограничительный контейнер ===========================
+	// (i) Стили будут применяться для всех классов, содержащих __container (home__container, main__container etc)
+	@if ($responsiveType == 1) {
+		// Отзывчивый
+		[class*="__container"] {
+			@if ($maxWidthContainer>0) {
+				max-width: toRem($containerWidth);
+				margin: 0 auto;
+			}
+			@if ($containerPadding>0) {
+				@if ($maxWidthContainer>0) {
+					padding: 0 toRem(calc($containerPadding / 2));
+				}
+				 @else {
+					@include adaptiveValue("padding-left", calc($containerPadding / 2), 15, 0);
+					@include adaptiveValue("padding-right", calc($containerPadding / 2), 15, 0);
+				 }
+			}
+		}
+	} @else {
+		// по брейкпоинтам
+		[class*="__container"] {
+			margin: 0 auto;
+			@if ($maxWidthContainer>0) {
+				max-width: toRem($containerWidth);
+			} @else {
+				@if ($containerPadding>0) {
+					padding: 0 toRem(calc($containerPadding / 2));
+				}
+			}
+			@media (max-width: $pc + px) {
+				max-width: toRem(970);
+			}
+			@media (max-width: $tablet + px) {
+				max-width: toRem(750);
+			}
+			@media (max-width: $mobile + px) {
+				max-width: none;
+				@if ($containerPadding>0 and $maxWidthContainer>0) {
+					padding: 0 toRem(calc($containerPadding / 2));
+					
+				}
+			}
+		}
+	}
+	

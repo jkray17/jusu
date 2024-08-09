@@ -1,0 +1,4 @@
+1. Верхний слайдер ( под поиском) - https://youtu.be/YpgTB6Th8Jo?t=10937
+
+2. _slider.htm - Адаптивна верстка сайту на базі шаблону ЧФ3. Пояснення дій. HTML CSS JS FIGMA. Частина №2
+ https://youtu.be/RB-RJB1siGw?t=1993 - инициализация
